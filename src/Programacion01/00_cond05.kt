@@ -1,4 +1,4 @@
-/*
+package Programacion01/*
 
 CÁLCULO DEL SALARIO NETO
 

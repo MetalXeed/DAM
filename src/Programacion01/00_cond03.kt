@@ -1,4 +1,4 @@
-/*
+package Programacion01/*
 
 Buscar el mayor de 3 números
 

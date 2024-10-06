@@ -1,4 +1,4 @@
-/*
+package Programacion01/*
 
 Sumar n números multiples veces hasta que no hay más datos
 
@@ -17,10 +17,10 @@ fun main() {
     var resultado:Int
     var contador:Int = 0
 
-    var n:Int? = readlnOrNull()!!.toIntOrNull()
-    var entrada:String? = readlnOrNull()
+    var n:Int? //= readlnOrNull()!!.toIntOrNull()
+    var entrada:String? //= readlnOrNull()
 
-    while(true){
+    do{
         resultado=0
         var intermedio = readlnOrNull()
         if (intermedio == null) break
@@ -37,7 +37,7 @@ fun main() {
         }
         println(salida[contador])
         contador++
-    }
+    }while(true)
 }
 
 /*   var elementos:List<String>?

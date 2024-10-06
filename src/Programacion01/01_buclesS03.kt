@@ -1,4 +1,4 @@
-/*
+package Programacion01/*
 
 Practicando entrada por fin de fichero
 

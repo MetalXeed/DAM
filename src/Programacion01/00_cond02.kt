@@ -1,4 +1,4 @@
-/*
+package Programacion01/*
 
 Comprobar si un numero es multiplo de otro
 

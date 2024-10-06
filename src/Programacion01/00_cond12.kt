@@ -1,4 +1,4 @@
-/*
+package Programacion01/*
 
 ENTRADA:Se leen en una  linea una hora(instante) en formato hh:mm:ss
 SALIDA:  la hora correspondiente a sumarle un segundo a la hora de entrada.

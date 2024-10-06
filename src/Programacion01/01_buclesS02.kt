@@ -1,4 +1,4 @@
-/*
+package Programacion01/*
 
 Sumar n números muchas veces hasta que n es 0
 

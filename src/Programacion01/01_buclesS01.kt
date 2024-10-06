@@ -1,4 +1,4 @@
-/*
+package Programacion01/*
     Sumar n números
     Ejercicio para familizarizarse con el sistema de entrada/salida
     Se pide simplemente sumar n números.
