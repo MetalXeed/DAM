@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Sumar n números multiples veces hasta que no hay más datos
 
@@ -7,6 +8,21 @@ Ejercicio para familizarizarse con el sistema de entrada/salida
 Similar al ejercicio de que hace sumas hasta que n vale 0 pero ahora no hay un n con valor 0, se detecta
  directamente el final de los datos. Usamos para ello la función readlnONull() que se comporta como readln()
   pero detecta el fin de la entrada y cuando esto ocurre devuelve null.
+
+Entrada 	Resultado
+
+3           6
+1 2 3       15
+1           3
+15
+4
+1 1 1 0
+
+2           2
+1 1         3
+3
+1 1 1
+
 
  */
 

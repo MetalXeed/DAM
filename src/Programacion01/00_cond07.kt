@@ -1,6 +1,14 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Obtener numero de mes a partir de nombre de mes
+
+Entrada 	Resultado
+
+Mayo        el mes Mayo es el numero 5
+
+Diciembre   el mes Diciembre es el numero 12
+
 
  */
 

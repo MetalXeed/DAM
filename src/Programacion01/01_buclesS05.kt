@@ -1,5 +1,4 @@
 package Programacion01
-
 /*
 
 EL CUMPLE DE FRAN
@@ -24,6 +23,14 @@ La salida consistirá en indicar un número entero que representa  el número de
 pizzas de forma que todos sus amigos tienen asignado un único trozo y es el más grande posible, si la asignación no
  puede ser exacta de forma que sobra o falta algún trozo indicamos PELEA para alertar a Fran que rechace esta
   combinación.
+
+Entrada 	Resultado
+
+2           3
+6
+2           PELEA
+5
+0
 
  */
 

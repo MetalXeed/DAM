@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Sumar n números muchas veces hasta que n es 0
 
@@ -14,6 +15,23 @@ En este ejemplo se establece la convención de que cuando n vale 0 ya no hay que
 
 Si el enunciado hiciera muchas descripciones, entonces hay que leerlas con atención pues puede
 describir detalles que no se aprecian en los ejemplos de entrada salida.
+
+Entrada 	Resultado
+
+3           3
+1 2 3       6
+1           3
+15
+4
+1 1 1 0
+0
+
+2           2
+1 1         3
+3
+1 1 1
+0
+
 
  */
 fun main() {

@@ -1,6 +1,13 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Obtener nombre de mes a partir de numero de mes
+
+Entrada 	Resultado
+
+7           el mes 7 se llama Julio
+
+1           el mes 1 se llama Enero
 
  */
 

@@ -1,5 +1,4 @@
 package Programacion01
-
 /*
 Tres veces el diámetro y un poquito más
 
@@ -42,6 +41,14 @@ La salida indicará para cada caso de entrada si p y d pertenecen a una circunfe
 CIRCUNFERENCIA, o en caso contrario con la frase PARECE UN HUEVO
 
 Por ejemplo:
+
+Entrada 	        Resultado
+
+4                   ES CIRCUNFERENCIA
+31.4169 10.0        PARECE UN HUEVO
+31.4169 12          ES CIRCUNFERENCIA
+6.2832 2            ES CIRCUNFERENCIA
+31.4151 10.0
 
  */
 

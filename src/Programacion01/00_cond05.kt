@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 CÁLCULO DEL SALARIO NETO
 
@@ -19,6 +20,12 @@ Al sueldo bruto se le aplicarán las siguientes tasas de impuestos:
 • Los restantes un 45% de impuestos.
 
  Imprime por la salida estándar el salario calculado.
+
+ Entrada 	Resultado
+
+36.0
+10.0        365.0
+
 
  */
 

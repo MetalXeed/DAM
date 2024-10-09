@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
     Sumar n números
     Ejercicio para familizarizarse con el sistema de entrada/salida
     Se pide simplemente sumar n números.
@@ -15,6 +16,14 @@ COMENTARIOS:
     salida realmente completan el enunciado porque observo en ellos como me van a mandar los datos.
     En este caso me fijo que en una linea me mandan n y a continuación en otra línea la lista de
     enteros separados por un espacio en blanco
+
+Entrada 	Resultado
+
+3           6
+1 2 3
+
+4           3
+1 1 1 0
 
  */
 fun main() {

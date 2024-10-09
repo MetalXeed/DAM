@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Practicando entrada por fin de fichero
 
@@ -14,6 +15,17 @@ Entendemos por palabra un conjunto de 1 o más caracteres. Los delimitadores de 
 
 Observa que como no se indica cuando acaban los casos de prueba, se asume que es cuando se encuentra la
  marca de fin de fichero
+
+Entrada 	                Resultado
+
+hola que tal estais todos   5
+
+a mi plín que soy de Lalín  7
+
+c i                         5
+n c
+o
+
 
  */
 fun main() {

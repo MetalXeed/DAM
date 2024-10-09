@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 calcular letra DNI
 
@@ -17,6 +18,12 @@ El cálculo se hace de la forma siguiente: dividimos el número del DNI entre 23
 ENTRADA: Un número entero que representa un DNI sin letra.
 
 SALIDA: La letra.
+
+Entrada 	Resultado
+
+12345678    Z
+
+1234        DNI no válido
 
  */
 

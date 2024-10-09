@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Clasificar puntuaciones
 
@@ -8,6 +9,14 @@ B 	de 80 hasta 90
 C 	de 70 hasta 80
 D 	de 0 hasta 70
 X 	cualquier otro entero como 101 o -3
+
+
+ Entrada 	Resultado
+
+79          La calificación es C
+
+110         La calificación es X
+
 
  */
 

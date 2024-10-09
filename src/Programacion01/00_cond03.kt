@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Buscar el mayor de 3 números
 
@@ -8,6 +9,11 @@ se aceptan 3 números enteros introducidos por teclado separados entre ellos por
 
     muestre el mayor de los 3 en caso de que no sean iguales
 
+Entrada 	Resultado
+
+1 9 18      18
+
+-5 -5 -5    3 iguales
 
  */
 

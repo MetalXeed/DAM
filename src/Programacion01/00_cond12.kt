@@ -1,7 +1,15 @@
-package Programacion01/*
+package Programacion01
+/*
 
 ENTRADA:Se leen en una  linea una hora(instante) en formato hh:mm:ss
 SALIDA:  la hora correspondiente a sumarle un segundo a la hora de entrada.
+
+Entrada 	Resultado
+
+00:00:00    00:00:01
+
+23:59:59    00:00:00
+
 
  */
 

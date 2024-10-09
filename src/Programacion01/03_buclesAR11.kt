@@ -1,4 +1,5 @@
 package Programacion01
+
 /*
 
 problema 252 de acepta el reto
@@ -40,3 +41,22 @@ Radar                                       SI
 XXX
 
  */
+
+fun main(){
+    var entrada:String
+    var caracteres:List<String>
+    var pali:Boolean = false
+    do {
+        entrada= readln().replace(" ", "")
+        if (entrada == "XXX") break
+        caracteres = entrada.lowercase().split("")
+        for(i in 0..caracteres.size-1){
+            //println(caracteres[i])
+            pali = (caracteres[i]==caracteres[caracteres.size-1-i])
+            if(!pali) break
+        }
+        if (pali == true ) println("SI")
+        else println("NO")
+    }while (true)
+
+}

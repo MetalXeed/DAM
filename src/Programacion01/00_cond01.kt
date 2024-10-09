@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Par o impar
 
@@ -13,7 +14,11 @@ Se solicite al usuario la entrada de un número entero positivo y el programa mo
 PISTA:
 
     Un número es par si el resto de la división entera entre 2 es 0
+Entrada 	Resultado
 
+7           7 es un número impar
+
+18          18 es un número par
 
  */
 

@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Notas
 
@@ -10,6 +11,10 @@ Escribe un programa que lea por entrada estándar una calificación numérica en
 • de 5 a <6 Bien
 • de 6 a <9 Notable
 • de 9 a 10 Sobresaliente
+
+Entrada 	Resultado
+
+0.0         Muy deficiente
 
  */
 

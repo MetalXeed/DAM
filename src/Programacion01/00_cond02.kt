@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Comprobar si un numero es multiplo de otro
 
@@ -10,6 +11,12 @@ Se piden dos números enteros por teclado,  si comprueba si el primero es múlti
     <num1> no es múltiplo de <num2>, en caso de que no lo sea
 
  Para evitar  posibilidades matemáticas suponemos siempre que num1 y num2 son siempre mayores que 0
+
+Entrada 	Resultado
+
+8 2         8 es múltiplo de 2
+
+5 3         5 no es múltiplo de 3
 
  */
 

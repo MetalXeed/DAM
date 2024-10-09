@@ -1,4 +1,5 @@
-package Programacion01/*
+package Programacion01
+/*
 
 Radares de tramo
 
@@ -44,6 +45,13 @@ El sistema de radar puede fallar y registrar entradas incorrectas. Se consideran
  menores o igual a 0.  En esos casos, el sistema mostrará la cadena "ERROR".
 
 Nota: Utiliza aritmética punto flotante con double para hacer las operaciones.
+
+Entrada 	Resultado
+
+9165 110 300 OK
+
+9165 110 299 MULTA
+
 
  */
 
