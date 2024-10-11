@@ -45,8 +45,8 @@ fun main(){
     var elementos:CharArray
 
     do {
-        var entrada = readlnOrNull()!!
-        if (entrada == "") break
+        var entrada = readlnOrNull()
+        if (entrada.isNullOrBlank()) break
         elementos=entrada.toCharArray()
         //var elementos = entrada.split(" ")
         lado = elementos[0].digitToInt()
