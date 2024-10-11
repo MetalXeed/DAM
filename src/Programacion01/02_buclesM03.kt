@@ -51,6 +51,38 @@ Resultado
  */
 
 fun main(){
+    //var entrada
+    //var elementos
+    var altura:Int = 0
+    var simbolo:Char = 'A'
+    do {
+        var entrada = readlnOrNull()!!.toCharArray()
+        if (entrada[0] == '0') break
+        //var elementos = entrada.split(" ")
+        altura = entrada[0].digitToInt()
+        simbolo = entrada[2]
+//var test = ((altura/2)-(altura%2))
+        for (i in 0..((altura/2))) { //piramide normal
+
+            for (y in 0..(altura/2)-i-1) print(" ")
+
+            for (y in 0..i*2) print(simbolo)
+            println()
+        }
+
+        for (i in 0..((altura/2)-(altura%2))) { //piramide inversa
+
+            for (y in 0..(i)) print(" ")
+
+            for (y in 0..((altura)-2*i-3)) print(simbolo)
+            println()
+        }
+        println("--------------------------------")
+    }while(true)
+}
+
+/*
+
     var entrada:String = "vacio"
     var elementos:List<String>
     var altura:Int = 0
@@ -61,23 +93,24 @@ fun main(){
         elementos = entrada.split(" ")
         altura = elementos[0].toInt()
         silbolo = elementos[1].toString()
+var test = ((altura/2)-(altura%2))
+        for (i in 0..((altura/2))) { //piramide normal
 
-        for (i in 0..altura-1 step 2) { //piramide normal
+            for (y in 0..(altura/2)-i-1) print(" ")
 
-            for (y in 0..altura -i -2) print(" ")
-
-            for (y in 0..altura*2) print(silbolo)
+            for (y in 0..i*2) print(silbolo)
             println()
         }
 
-        for (i in 0..altura -1 ) { //piramide inversa
+        for (i in 0..((altura/2)-(altura%2))) { //piramide inversa
 
-            for (y in 0..(altura) -i -2) print(" ")
+            for (y in 0..(i)) print(" ")
 
-            for (y in 0..(altura)*2) print(silbolo)
+            for (y in 0..((altura)-2*i-3)) print(silbolo)
             println()
         }
         println("--------------------------------")
     }while(true)
-
 }
+
+ */
