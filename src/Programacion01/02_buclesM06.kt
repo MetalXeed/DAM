@@ -80,3 +80,32 @@ CORRECTO
 DEFECTO
 
  */
+
+fun main() {
+    var entrada: String= "INICIO"              // Recibe los valores iniciales pasados por teclado
+    var elementos: List<String>                // Listado de los valores
+    var tserie: Double
+    entrada = readln()
+    while (entrada != "FIN") {
+        tserie = 0.toDouble()
+        //if (entrada == ""){break}
+        elementos = entrada.split(" ")
+        for (i in 0..elementos.size - 1) {
+            when (elementos[i]) {
+                "R" -> tserie += 4.0
+                "B" -> tserie += 2.0
+                "N" -> tserie++
+                "C" -> tserie += 0.5
+                "S" -> tserie += 0.25
+
+            }
+        }
+
+        if (tserie <= 3.98) println("DEFECTO")
+        else if (tserie in 3.99..4.000) println("CORRECTO")
+        else if (tserie >= 4.01) println("EXCESO")
+        //else if(tserie <= 4) println("CORRECTO")
+        entrada = readln()
+    }
+
+}
