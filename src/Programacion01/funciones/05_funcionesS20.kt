@@ -38,11 +38,12 @@ fun cesar(frase:String,desp:Int):String{
     var elementos=frase.uppercase().split("").drop(1).dropLast(1)
     val alfabeto= ('A'..'Z').joinToString("").split("").drop(1).dropLast(1)
     for (i in elementos){
-
+        posicion = alfabeto.indexOf(i)+desp
+        if ((posicion)>alfabeto.size-1) posicion -= alfabeto.size
+        //if ((posicion)<alfabeto.size-1||(posicion)>alfabeto.size) posicion += alfabeto.size
         if(i in alfabeto) {
-            posicion = alfabeto.indexOf(i)
-            if ((posicion + desp)>alfabeto.size) posicion -= alfabeto.size
-            respuesta = "$respuesta${alfabeto[posicion + desp]}"
+            //posicion = alfabeto.indexOf(i)+desp
+            respuesta = "$respuesta${alfabeto[posicion]}"
         }
         else respuesta = "$respuesta${i}"
     }
@@ -51,9 +52,9 @@ fun cesar(frase:String,desp:Int):String{
 }
 
 fun main(){
-    //println(cesar("Alea iacta est", 3))
+    println(cesar("Alea iacta est", 3))
     println(cesar("turi te salutant", 7)) //Ave, Caesar, mori
-    //println(cesar("VW VCODKGP, DTWVQ?", -2))
-    //println(cesar("a",-1))
-    //println(cesar("a",-26))
+    println(cesar("VW VCODKGP, DTWVQ?", -2))
+    println(cesar("a",-1))
+    println(cesar("a",-26))
 }
