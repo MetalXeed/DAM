@@ -49,36 +49,53 @@ fun elZorroEstuvoAqui(num: Int, caracter:Char) {
     var ancho = altura - 2
     if (altura<4) return
     if (num <0) {
-        for (i in 0..num-1) {
-            if(i==0 || i==num-1){
+        for (i in 0..altura-1) {
+            if(i==0 || i==altura-1){
                 for (j in 0..ancho-1) {
-                    println(caracter)
+                    print(caracter)
                 }
-            }else{
-                for (j in 0..ancho-1) {
-                    println(caracter)
+                println()
+            }
+            if(i!=0 && i!=altura-1 && i!=1 ) { //&& i!=altura-2
+                for (j in 0..i - 2) {
+                    print("-")
                 }
             }
-            for (j in 0..(i - 1)) {
+            if(i!=0 && i!=altura-1) {
                 println(caracter)
+
             }
+            //if(i!=0 && i!=altura-1)println()
+
+
         }
     }else{
-        for (i in 0..num-1) {
-            for (j in 1..(i - 1)) {
-                println(caracter)
+        for (i in 0..altura-1) {
+            if (i == 0 || i == altura - 1) {
+                for (j in 0..ancho - 1) {
+                    print(caracter)
+                }
+                println()
             }
-            print(" ")
-            for (j in 1..(altura - i)) {
-                println(caracter)
+            if (i != 0 && i != altura - 1 && i != altura-2) { //&& i!=altura-2
+                for (j in 0..altura-i - 3) {
+                    print("-")
+                }
             }
+            if (i != 0 && i != altura - 1) {
+                println(caracter)
+
+            }
+            //if(i!=0 && i!=altura-1)println()
+
+
         }
     }
 }
 fun main(){
-    elZorroEstuvoAqui(5, '#')
+    elZorroEstuvoAqui(10, '#')
     println()
-    elZorroEstuvoAqui(-6, '@')
-    println()
-    elZorroEstuvoAqui(-4, '@')
+    //elZorroEstuvoAqui(-6, '@')
+    //println()
+    //elZorroEstuvoAqui(-4, '@')
 }
