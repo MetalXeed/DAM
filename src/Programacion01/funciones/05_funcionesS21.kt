@@ -35,3 +35,38 @@ eL mos6502 ES UN MICROPROCESADOR DE 8 BITS DE 1975
 
 Respuesta:
  */
+
+fun flipChar(frase:String):String{
+    var posicion:Int
+    var letra:String
+    var respuesta:String = ""
+
+    var elementos=frase.split("").drop(1).dropLast(1)
+    val alfabeto= ('A'..'Z').joinToString("").split("").drop(1).dropLast(1)
+    for (i in elementos){
+        posicion = alfabeto.indexOf(i)
+        if ((posicion)>alfabeto.size-1){
+            var n = (posicion/alfabeto.size)
+            posicion -= alfabeto.size*n}
+
+        else if((posicion)<0) {
+            var n = (posicion / alfabeto.size)
+
+            if (n > 0) posicion += alfabeto.size * n
+            else posicion += alfabeto.size
+        }
+        if(i in alfabeto) {
+            //posicion = alfabeto.indexOf(i)+desp
+            respuesta = "$respuesta${alfabeto[posicion]}"
+        }
+        else respuesta = "$respuesta${i}"
+    }
+
+    return respuesta
+}
+
+fun main(){
+    println(flipChar("En un lugar de la Mancha"))
+    println(flipChar("El MOS6502 es un microprocesador de 8 bits de 1975"))
+    println(flipChar("\"Veni, vidi, vici\"; Julius Caesar 47 a.C."))
+}

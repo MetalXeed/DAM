@@ -39,8 +39,16 @@ fun cesar(frase:String,desp:Int):String{
     val alfabeto= ('A'..'Z').joinToString("").split("").drop(1).dropLast(1)
     for (i in elementos){
         posicion = alfabeto.indexOf(i)+desp
-        if ((posicion)>alfabeto.size-1) posicion -= alfabeto.size
-        //if ((posicion)<alfabeto.size-1||(posicion)>alfabeto.size) posicion += alfabeto.size
+        if ((posicion)>alfabeto.size-1){
+            var n = (posicion/alfabeto.size)
+            posicion -= alfabeto.size*n}
+
+        else if((posicion)<0) {
+            var n = (posicion / alfabeto.size)
+
+            if (n > 0) posicion += alfabeto.size * n
+            else posicion += alfabeto.size
+        }
         if(i in alfabeto) {
             //posicion = alfabeto.indexOf(i)+desp
             respuesta = "$respuesta${alfabeto[posicion]}"
