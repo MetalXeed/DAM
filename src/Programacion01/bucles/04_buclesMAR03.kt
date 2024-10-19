@@ -1,5 +1,7 @@
 package Programacion01.bucles
 
+import kotlin.math.absoluteValue
+
 /*
 ZAPPING
 
@@ -25,3 +27,31 @@ Entrada 	Resultado
 0 0
 Respuesta:
  */
+fun caldisca(p1:Int, p2:Int):Int{
+    if(p1 > 0 && p2 > 0) return p1
+    return ((p1 - p2).absoluteValue)
+}
+fun main(args: Array<String>) {
+    var entrada = readln().split(" ")//lista de valores
+
+    var distancia= 0
+    var punto1 = entrada[0].toInt()
+    var punto2 = entrada[1].toInt()
+
+
+    while(punto1 != -1 && punto2 != -1){
+        for (i in 0..entrada.size-1 step 2) {
+            distancia+= caldisca(punto1,punto2)
+
+            var punto1 = entrada[i].toInt()
+            var punto2 = entrada[i+1].toInt()
+
+        }
+        println(distancia)
+        punto1 = readln().toInt()
+        punto2 = readln().toInt()
+
+        var punto1 = entrada[0].toInt()
+        var punto2 = entrada[1].toInt()
+    }
+}
