@@ -1,4 +1,8 @@
 package Programacion01.bucles
+
+import Programacion01.funciones.readlnToInt
+import kotlin.math.absoluteValue
+
 /*
 Los saltos de Mario
 http://www.aceptaelreto.com/problem/statement.php?id=158
@@ -26,3 +30,27 @@ Entrada 	        Resultado
 1 2 3 4 5
 Respuesta:
  */
+
+fun main() {
+    var ncasos = readLine()!!
+
+    var contup = 0 //saltos arriba
+    var contdo = 0 //saltos abajo
+
+    if(ncasos != null && ncasos.isNotEmpty()){
+        var valores  = ncasos.toInt()
+        for (c in 0..valores-1){
+        contup = 0
+        contdo = 0
+
+        var nmuros = readln().toInt()
+        var altura = readln().split(" ").map { it.toInt() }
+
+        for (i in 0..nmuros-2) {
+            if (altura[i] < altura[i + 1]) contup+=1
+            else if(altura[i] > altura[i + 1]) contdo+=1
+        }
+        println("$contup $contdo")
+    }
+}
+}

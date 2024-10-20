@@ -37,6 +37,40 @@ Entrada 	        Resultado
 
 Respuesta:
  */
+fun caldist(p1: Int, p2: Int): Int {
+    return (p1 - p2).absoluteValue
+}
+
+fun main() {
+    var entrada = readLine()
+
+    while (entrada != null && entrada.isNotEmpty()) {
+        val valores = entrada.split(" ").map { it.toInt() }
+
+        if (valores[0] < 0) break
+
+        var distancia = 0
+        var puntoActual = valores[0]
+
+        for (i in 1 until valores.size step 2) {
+            val origen = valores[i]
+            val destino = valores.getOrNull(i + 1) ?: break
+
+            if (origen == -1 || destino == -1) break
+
+            distancia += caldist(puntoActual, origen)
+            distancia += caldist(origen, destino)
+            puntoActual = destino
+        }
+
+        println(distancia)
+        entrada = readLine()
+    }
+
+}
+
+/* alfa
+import kotlin.math.absoluteValue
 fun caldis(p1:Int, p2:Int):Int{
     if(p1 > 0 && p2 > 0) return p1
         return ((p1 - p2).absoluteValue)
@@ -51,17 +85,56 @@ fun main(args: Array<String>) {
 
     while(punto1 != -1 && punto2 != -1){
         for (i in 0..entrada.size-1 step 2) {
-            distancia+= caldisca(punto1,punto2)
+            distancia+= caldis(punto1,punto2)
 
             var punto1 = entrada[i].toInt()
             var punto2 = entrada[i+1].toInt()
 
         }
         println(distancia)
-        punto1 = readln().toInt()
-        punto2 = readln().toInt()
+        var entrada = readln().split(" ")//lista de valores
+        punto1 = entrada[0].toInt()
+        punto2 = entrada[1].toInt()
 
-        var punto1 = entrada[0].toInt()
-        var punto2 = entrada[1].toInt()
     }
 }
+#beta
+fun main(args: Array<String>) {
+    var entrada = readLine()
+
+    while (entrada != null) {
+        val valores = entrada.split(" ")
+        val numeros = mutableListOf<Int>()
+        for (valor in valores) {
+            numeros.add(valor.toInt())
+        }
+        if (numeros[0]<0) break
+
+        var distancia = 0
+        var puntoActual = numeros[0] // Piso inicial
+        var primerValor = true
+
+        for (i in 1 until numeros.size step 2) {
+            val origen = numeros[i]
+            if (origen == -1) break
+            val destino = numeros.getOrElse(i + 1) { -1 }
+            if (destino == -1) break
+
+            if (primerValor) {
+                distancia += caldist(puntoActual, origen)
+                primerValor = false
+            } else {
+                distancia += caldist(puntoActual, origen) // Distancia desde el piso actual hasta el origen
+            }
+
+            distancia += caldist(origen, destino) // Distancia desde el origen hasta el destino
+            puntoActual = destino // Actualizar el piso actual
+        }
+
+        println(distancia)
+        entrada = readLine()
+    }
+}
+
+
+ */

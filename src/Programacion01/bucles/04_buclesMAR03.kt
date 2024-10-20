@@ -27,31 +27,24 @@ Entrada 	Resultado
 0 0
 Respuesta:
  */
-fun caldisca(p1:Int, p2:Int):Int{
-    if(p1 > 0 && p2 > 0) return p1
-    return ((p1 - p2).absoluteValue)
-}
-fun main(args: Array<String>) {
-    var entrada = readln().split(" ")//lista de valores
+//import kotlin.math.absoluteValue
+fun main() {
+    var entrada = readLine()!!
+    var contador = 0
+    while(entrada != null && entrada.isNotEmpty()){
+        var valores  = entrada.split(" ").map { it.toInt() }
+        contador = 0
 
-    var distancia= 0
-    var punto1 = entrada[0].toInt()
-    var punto2 = entrada[1].toInt()
+        if (valores[0] == valores[1] && valores[1]==0) break
+        val dif = (valores[0] - valores[1]).absoluteValue
+        if (dif < 50) {
+            println(dif)
+        } else if (valores[0] > valores[1]) {
+            println(valores[1] + 99 - valores[0])
+        } else if (valores[0] < valores[1]) {
+            println(valores[0] + 99 - valores[1])
+        } else println(dif)
 
-
-    while(punto1 != -1 && punto2 != -1){
-        for (i in 0..entrada.size-1 step 2) {
-            distancia+= caldisca(punto1,punto2)
-
-            var punto1 = entrada[i].toInt()
-            var punto2 = entrada[i+1].toInt()
-
-        }
-        println(distancia)
-        punto1 = readln().toInt()
-        punto2 = readln().toInt()
-
-        var punto1 = entrada[0].toInt()
-        var punto2 = entrada[1].toInt()
+        entrada = readLine()!!
     }
 }
