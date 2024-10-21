@@ -1,4 +1,4 @@
-package recursividad
+package Programacion01.recursividad
 
 /*
 LA MULTIPLICACIÓN RUSA  (CON RECURSIVIDAD)

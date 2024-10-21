@@ -1,4 +1,4 @@
-package recursividad
+package Programacion01.recursividad
 
 /*
 Algoritmo de Euclides

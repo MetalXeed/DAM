@@ -1,4 +1,4 @@
-package recursividad
+package Programacion01.recursividad
 
 /*
 Triángulo  de *  con punta hacia abajo con recursividad
