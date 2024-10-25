@@ -36,12 +36,31 @@ Entrada 	Resultado
 0 0
 Respuesta:
  */
-fun suma(a:Int,b:Int):Int{
-    return a+b
+fun sumaString(a:String,b:String):Int{
+    val maxleght = maxOf(a.length, b.length)
+    val pada = a.padStart(maxleght,'0').reversed()
+    val padb = b.padStart(maxleght, '0').reversed()
+    val resultado = StringBuilder()
+    var carreo = 0
+    var ncarreo =0
+
+    for (i in 0 until maxleght){
+        var cifra1 = pada[i] - '0' // convierte a entero.
+        var cifra2 = padb[i] - '0'
+        val suma = cifra1 + cifra2 + carreo
+        carreo = suma/10
+        resultado.append(suma%10)
+        if (carreo>0) ncarreo++
+    }
+    if (carreo >0) resultado.append(carreo)
+    return ncarreo
 }
+
 fun main(){
-    var entrada = readLine()!!.split(" ").map { it.toInt() }
-    while (entrada[0].equals(0){
-        a
+    var entrada = readLine()!!.split(" ")
+
+    while (!(entrada[0]=="0" && entrada[1]=="0")){
+        println(sumaString(entrada[0], entrada[1]))
+        entrada = readLine()!!.split(" ")
     }
 }
