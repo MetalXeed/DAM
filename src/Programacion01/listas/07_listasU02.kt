@@ -23,3 +23,16 @@ Entrada 	Resultado
 1 1
 
  */
+
+fun contardias(date:List<Int>):Int{
+    return (365 - date[0] - (date[1]-1)*30)
+}
+fun main() {
+    val entradas = readLine()!!.toInt()
+
+    for (i in 0..entradas - 1) {
+        var fechas= readLine()!!.split(" ").map {it.toInt()}
+        println(contardias(fechas))
+
+    }
+}
