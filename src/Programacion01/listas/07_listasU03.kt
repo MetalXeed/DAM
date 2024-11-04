@@ -40,3 +40,24 @@ Entrada                         	Resultado
 4 5 9 2
 0
  */
+
+fun main(){
+    var ncifras = readLine()!!.toInt()
+    var entradas:List<Int> = listOf(0)
+    var centro =0
+    while (ncifras != 0) {
+
+            centro =0
+            entradas= readLine()!!.split(" ").map { it.toInt() }
+            centro =ncifras/2
+            println(centro)
+            println(entradas[centro])
+
+        if (ncifras%2==1){
+            println(entradas[centro]*2)
+        }else{
+            println( ((entradas[centro-1])+(entradas[centro+1])))
+        }
+        ncifras = readLine()!!.toInt()
+    }
+}

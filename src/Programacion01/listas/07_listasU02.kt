@@ -25,7 +25,13 @@ Entrada 	Resultado
  */
 
 fun contardias(date:List<Int>):Int{
-    return (365 - date[0] - (date[1]-1)*30)
+    var diasRestantes = 0
+    var diaspormes = listOf(31,28,31,30,31,30,31,31,30,31,30,31)
+    diasRestantes +=  diaspormes[date[1]-1] -date[0]
+    for (i in date[1] until 12){
+        diasRestantes+= diaspormes[i-1]
+    }
+    return diasRestantes
 }
 fun main() {
     val entradas = readLine()!!.toInt()
@@ -36,3 +42,19 @@ fun main() {
 
     }
 }
+/*
+fun contardias(dia: Int, mes: Int): Int {
+val diasPorMes = listOf(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+ var diasRestantes = 0 // Sumar días restantes del mes actual dias
+ Restantes += diasPorMes[mes - 1] - dia
+ // Sumar días de los meses siguientes
+ for (i in mes until 12) { diasRestantes += diasPorMes[i] }
+ return diasRestantes }
+ fun main() {
+ val entradas = readLine()!!.toInt()
+ for (i in 0 until entradas) {
+ val (dia, mes) = readLine()!!.split(" ").map { it.toInt()
+ }
+ println(contardias(dia, mes)) }
+
+ */
