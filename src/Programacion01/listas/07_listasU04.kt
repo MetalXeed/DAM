@@ -39,3 +39,8 @@ dD-3*A-E+   EDA
 EDA-3E*3A   EDA
 
  */
+fun main() {
+
+    var lnumeros= List(100){i -> i+1}
+    println(lnumeros)
+}
