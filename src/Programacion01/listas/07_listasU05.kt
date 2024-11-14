@@ -42,3 +42,18 @@ Entrada 	Resultado
 1 2 1 1 1 1
 
  */
+fun seTocan(sup:String,inf:String):String{
+    return "NO"
+}
+fun main(){
+    var n = readLine()!!.toInt()
+    n--
+    while (n>= 0){
+        for (i in 0..n){
+            var superior = readLine()!!
+            var inferior = readLine()!!
+            println(seTocan(superior,inferior))
+        }
+    }
+
+}
