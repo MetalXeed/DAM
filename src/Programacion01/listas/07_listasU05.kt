@@ -52,7 +52,7 @@ fun main(){
         for (i in 0..n){
             var superior = readLine()!!
             var inferior = readLine()!!
-            println(seTocan(superior,inferior))
+            println(seTocan(superior,inferior)) //
         }
     }
 
