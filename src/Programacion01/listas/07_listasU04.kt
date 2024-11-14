@@ -38,9 +38,47 @@ EDA-333
 dD-3*A-E+   EDA
 EDA-3E*3A   EDA
 
- */
-fun main() {
+- INICIO
++ FINAL
+* DERECHA
+3 BORRA A LA DERECHA
 
-    var lnumeros= List(100){i -> i+1}
-    println(lnumeros)
+
+
+EDA
+EDA-333
+dD-3*A-E+
+EDA-3E*3A
+
+
+ */
+fun tecladoEstropado(listado:String):String{
+    //var teclaEst = listOf("-","+","*","3")
+    var resultado = StringBuilder()
+    var posicionCursor = 0
+    for(i in listado){
+        when(i){
+            '-' -> posicionCursor = 0
+            '+' -> posicionCursor = resultado.length
+            '*' -> if (resultado.length > posicionCursor) posicionCursor++
+            '3' -> if (resultado.length > posicionCursor) resultado.deleteCharAt(posicionCursor)
+            else -> resultado.insert(posicionCursor++,i)
+        }
+        //resultado.append(i)
+    }
+   return(resultado.toString())
+}
+
+
+fun main() {
+    //var entrada = mutableListOf("")
+    //var nlineas = 0
+    var linea = readLine()!!
+
+    while(!linea.isNullOrEmpty()){
+        //entrada[nlineas]= linea
+        //nlineas++
+        println(tecladoEstropado(linea))
+        linea = readLine()!!
+    }
 }

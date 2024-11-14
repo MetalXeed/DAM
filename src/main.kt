@@ -15,3 +15,28 @@ fun main() {
 }
 
  */
+fun combinar(longitud: Int, numeros: List<String>): List<String> {
+    val result = mutableListOf<String>()
+    if (longitud == 1) {
+        return numeros
+    }
+    val sublista = combinar(longitud - 1, numeros)
+
+    for (numero in numeros) {
+        for (numeroCombinado in sublista) {
+            result.add(numero + numeroCombinado)
+        }
+    }
+    return result
+}
+
+fun main() {
+    val numeros = listOf("1", "2", "3")
+
+    println("todas las combinaciones de 1, 2 y 3 con longitud 3")
+    val longitud = 3
+    val result = combinar(longitud, numeros)
+    for (s in result) {
+        println(s)
+    }
+}

@@ -7,7 +7,7 @@ fun mostrarMenu(){
     println("3. Salir")
     print("opción: ${RESET}")
 }
-fun main() {
+fun mainnn() {
     clearResultado()//vaciamos fichero de resultados
     mostrarMenu()
     var inputMenu:Int= readLine()!!.toInt()
