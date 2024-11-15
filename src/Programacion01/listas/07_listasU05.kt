@@ -1,5 +1,7 @@
 package Programacion01.listas
 
+import kotlin.math.absoluteValue
+
 /*
  La abuela María
 
@@ -41,19 +43,38 @@ Entrada 	Resultado
 1 1 1 1 1 1
 1 2 1 1 1 1
 
+
+2
+1 3 1 3 1 3
+3 1 3 1 3 1
+1 1 1 1 1 1
+1 2 1 1 1 1
+
+
  */
 fun seTocan(sup:String,inf:String):String{
-    return "NO"
+    var listaSup = sup.toList()
+    var listaInf = sup.toList()
+    var distanciaDientes = (sup[0].digitToInt() - inf[0].digitToInt()).absoluteValue
+    var seTocan = "SI"
+
+    for (i in 0..listaInf.size-1){
+        if ((sup[i].digitToInt() - inf[i].digitToInt()).absoluteValue != distanciaDientes){
+        seTocan = "NO"
+        }
+    }
+    return seTocan
 }
+
 fun main(){
     var n = readLine()!!.toInt()
     n--
-    while (n>= 0){
+    while (n> 0){
         for (i in 0..n){
-            var superior = readLine()!!
-            var inferior = readLine()!!
+            var superior = readLine()!!.replace(" ","")
+            var inferior = readLine()!!.replace(" ","")
             println(seTocan(superior,inferior)) //
+            n--
         }
     }
-
 }
