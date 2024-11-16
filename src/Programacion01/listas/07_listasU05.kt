@@ -55,6 +55,7 @@ Entrada 	Resultado
 fun seTocan(sup:String,inf:String):String{
     var listaSup = sup.toList()
     var listaInf = sup.toList()
+    println(listaInf)
     var distanciaDientes = (sup[0].digitToInt() - inf[0].digitToInt()).absoluteValue
     var seTocan = "SI"
 

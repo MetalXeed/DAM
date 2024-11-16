@@ -43,16 +43,59 @@ Entrada 	Resultado
 4 10 10 3 2
 0
 
+4
+4 10 3 2
+4
+10 3 2 4
+5
+4 10 10 3 2
+0
+
+
+5
+1 0 1 0 1
+
+
+
+
+
  */
-fun calcularPicos():Int{
+fun calcularPicos(num:String,alturas:List<Int>):Int{
+    var npicos = 0
+    if (num=="1") return 1
+    else if ((num=="2")&&(alturas[0]!=alturas[1])) return 1
+    else {
+        for (i in alturas.indices){
+            if (i==0){
+                if ((alturas[i] > alturas[i+1])&&(alturas[i] > alturas[num.toInt()-1]))
+                npicos++
+            }
+            else if(i==num.toInt()-1){
+                if (!(!(alturas[i] > alturas[i-1]) || !(alturas[i] > alturas[0])))  npicos++
+            }
+            else if ((alturas[i] > alturas[i-1]) && (alturas[i] > alturas[i+1])){
+                npicos ++
+            }
+
+        }
+        return npicos
+    }
     return 0
 }
 fun main(){
-    var entrada = readLine()
-    if(!entrada.isNullOrBlank()) {
-        while (!entrada[0].equals(0)) {
-            println(calcularPicos())
-            entrada = readLine()
+    var n = readLine()!! //numero de alturas
+    var lAlturas:List<Int> //readLine()!!.split(" ")//.drop(1).dropLast(1) //string de alturas
+    var picos:Int
+
+        while(!n.equals("0")){
+            lAlturas = readLine()!!.split(" ").map { it.toInt() }//.drop(1).dropLast(1) //string de alturas
+            picos = calcularPicos(n,lAlturas)
+            println(picos)
+            n = readLine()!! //numero de alturas
         }
-    }
 }
+
+//println(calcularPicos(lAlturas))
+//if(!entrada.isNullOrBlank()) break
+//picos = calcularPicos(lAlturas)
+//            if (n>0) println(picos)
