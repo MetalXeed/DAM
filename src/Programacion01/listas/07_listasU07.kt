@@ -33,4 +33,66 @@ Entrada 	                        Resultado
 17
 1 8 9 6 3 2 1 5 4 7 9 6 3 2 1 4 7
 0
+
+11
+1 2 2 3 3 3 4 4 4 4 5
+17
+1 8 9 6 3 2 1 5 4 7 9 6 3 2 1 4 7
+0
+
+
+11
+1 2 2 3 3 3 4 4 4 4 5
+0
+
+
+ */
+
+fun esModa(listado: List<Int>): Int {
+    //val listaFrecuencia = mutableListOf<Int>()
+    val listaOrdenada = listado.toList().sorted()
+    var frecuenciaActual = 0
+    var frecuenciaMaxima = 0
+    var moda:Int = listaOrdenada[0]
+
+// Recorrer la lista y contar las ocurrencias de cada número
+    for (i in 0..listaOrdenada.size-2) {
+        if(listaOrdenada[i] == listaOrdenada[i+1]) frecuenciaActual++
+        else {if(frecuenciaActual>frecuenciaMaxima){
+            frecuenciaMaxima=frecuenciaActual
+            moda=listaOrdenada[i]
+        }
+        frecuenciaActual=0
+        }
+    }
+    // Verificar la última frecuencia
+    if (frecuenciaActual>frecuenciaMaxima) moda = listaOrdenada.last()
+// Encontrar el número con la mayor frecuencia
+    return moda
+}
+
+
+fun main() {
+    var nentradas: Int = readLine()!!.toInt()
+    var entradas: List<Int>
+
+    while (!nentradas.equals(0)) {
+        entradas = readLine()!!.split(" ").map { it.toInt() }
+        println(esModa(entradas))
+        nentradas= readLine()!!.toInt()
+    }
+}
+/*
+**usando mapas
+fun esModa(listado: List<Int>): Int {
+    // Crear un mapa para contar las ocurrencias de cada número
+    val frecuencia = mutableMapOf<Int, Int>()
+// Contar las ocurrencias de cada número en la lista
+    for (num in listado) {
+        frecuencia[num] = frecuencia.getOrDefault(num, 0) + 1
+    }
+// Encontrar el número con la mayor frecuencia
+    return frecuencia.maxByOrNull { it.value }!!.key
+}
+
  */
