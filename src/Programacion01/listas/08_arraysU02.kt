@@ -29,3 +29,39 @@ println(a1.joinToString())
 
 
  */
+
+fun miAdd(arrChar:CharArray,num:Int,entrada:Char):CharArray{
+    var arrTemp = arrChar.copyOf(arrChar.size +1)
+    arrTemp[num]=entrada
+    for (i in num  .. arrChar.size-1){
+        arrTemp[i+1]=arrChar[i]
+    }
+    return arrTemp
+}
+fun miRemoveAt(arrChar:CharArray,num:Int):CharArray{
+    var arrTemp = arrChar.copyOf(arrChar.size -1)
+    //arrTemp[num]=entrada
+    for (i in num  .. arrChar.size-2){
+        arrTemp[i]=arrChar[i+1]
+    }
+    return arrTemp
+}
+fun main(){
+    var a1 = charArrayOf('a', 'b', 'c', 'd')
+    a1 = miAdd(a1, 3, 'X')
+    println(a1.joinToString())
+    a1 = miRemoveAt(a1, 2)
+    println(a1.joinToString())
+
+/*
+    var a1 = charArrayOf()
+    a1 = miAdd(a1, 0, 'A')
+    println(a1.joinToString())
+    a1 = miRemoveAt(a1, 0)
+    println(a1.joinToString())
+    a1 = miAdd(a1, 0, 'X')
+    println(a1.joinToString())
+    a1 = miAdd(a1, 1, 'Z')
+    println(a1.joinToString())
+    */
+}
