@@ -48,3 +48,24 @@ tenia 1
 una 1
 ----
  */
+fun referenciasCruzadas(entrada:List<String>, mapa:MutableMap<String,List<Int>>,){
+    for (i in entrada.indices){
+        if(mapa.containsKey(entrada[i])){
+
+        }else{
+            mapa[entrada[i]]=mapa[entrada[i][]].
+        }
+    }
+
+}
+
+fun main(){
+    val mapaRef= mutableMapOf<String,List<Int>>()
+    var nentradas = readLine()!!.toInt()
+    var entrada:List<String> = listOf("")
+    while(nentradas!=0){
+        entrada = readLine()!!.split(" ")
+        referenciasCruzadas(entrada,mapaRef)
+        nentradas = readLine()!!.toInt()
+    }
+}
