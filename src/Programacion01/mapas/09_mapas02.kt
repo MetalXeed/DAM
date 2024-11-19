@@ -48,24 +48,34 @@ tenia 1
 una 1
 ----
  */
-fun referenciasCruzadas(entrada:List<String>, mapa:MutableMap<String,List<Int>>,){
-    for (i in entrada.indices){
-        if(mapa.containsKey(entrada[i])){
-
-        }else{
-            mapa[entrada[i]]=mapa[entrada[i][]].
+fun referenciasCruzadas(entrada:List<String>, mapa:MutableMap<String,MutableList<Int>>, linea:Int){
+    for (palabra in entrada){
+        val palabraMinuscula = palabra.lowercase()
+        if(palabraMinuscula.length > 2) {
+            mapa.computeIfAbsent(palabraMinuscula) { mutableListOf() }
+            if (!mapa[palabraMinuscula]!!.contains(linea))
+                mapa[palabraMinuscula]!!.add(linea)
         }
     }
-
 }
 
 fun main(){
-    val mapaRef= mutableMapOf<String,List<Int>>()
+    val mapaRef= mutableMapOf<String,MutableList<Int>>()
     var nentradas = readLine()!!.toInt()
     var entrada:List<String> = listOf("")
+    //var linea = 0
     while(nentradas!=0){
-        entrada = readLine()!!.split(" ")
-        referenciasCruzadas(entrada,mapaRef)
-        nentradas = readLine()!!.toInt()
+        for(linea in 1..nentradas){ //porque no hay linea 0
+            entrada = readLine()!!.split(" ")
+            referenciasCruzadas(entrada, mapaRef,linea)
+
+        }
+
+    val palabrasOrdenadas = mapaRef.keys.sorted()
+    for (palabra in palabrasOrdenadas) {
+        val lineas = mapaRef[palabra]?.sorted()
+        println("$palabra ${lineas?.joinToString(" ")}") }
+    println("----")
+    nentradas = readLine()!!.toInt()
     }
 }
