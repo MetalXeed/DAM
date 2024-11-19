@@ -63,8 +63,64 @@ FIN
 FIN
 
 
+ */
 
+/*solucion sin utilizar mapas
+fun procesarCategoria(entradas: List<String>, indexInicial: Int): Int {
+    var index = indexInicial
+    val categoria = entradas[index]
+    index ++
+    val resultados = mutableMapOf<String, Int>()
+    val partidos = mutableMapOf<Pair<String, String>, Boolean>()
+    var totalPartidos =
+        0 // Procesamos cada línea hasta encontrar "FIN"
+    while (index < entradas.size) {
+        val line = entradas[index]
+        if (line == "FIN") {
+            index++
+            break
+        }
+        // Dividimos la línea en partes y extraemos los datos
+        val parts = line.split(" ")
+        val equipoLocal = parts[0]
+        val setsLocal = parts[1].toInt()
+        val equipoVisitante = parts[2]
+        val setsVisitante = parts[3].toInt()
+        // Actualizamos los puntos de las parejas según el resultado del partido
+        if (setsLocal > setsVisitante) {
+            resultados[equipoLocal] = resultados.getOrDefault(equipoLocal, 0) + 2
+            resultados[equipoVisitante] = resultados.getOrDefault(equipoVisitante, 0) + 1
+        } else {
+            resultados[equipoVisitante] = resultados.getOrDefault(equipoVisitante, 0) + 2
+            resultados [equipoLocal] =
+            resultados.getOrDefault(equipoLocal, 0) + 1
+        }
+// Registramos el partido en el mapa de partidos
+        partidos[Pair(equipoLocal, equipoVisitante)] = true
+        partidos [Pair(equipoVisitante, equipoLocal)] = true
+        totalPartidos ++
+        index++
+    }
+// Determinamos el ganador de la categoría
+    val maxPuntos = resultados.maxByOrNull { it.value }?.value ?: 0
+    val ganadores = resultados.filter { it.value == maxPuntos }.keys
+// Imprimimos el resultado según si hay empate o no
+    if (ganadores.size > 1) {
+        println("EMPATE ${totalPartidos - partidos.size / 2}")
+    } else {
+        println("${ganadores.first()} ${totalPartidos - partidos.size / 2}")
+    }
+    return index
+}
 
-
+fun main() {
+// Leemos todas las entradas de una vez
+    val entradas = generateSequence(::readLine).toList()
+    var index = 0
+// Procesamos las entradas hasta encontrar "FIN"
+    while (index < entradas.size) {
+        val categoria = entradas[index] if (categoria == "FIN") break
+// Procesamos cada categoría y actualizamos el índice
+        index = procesarCategoria(entradas, index)
 
  */
