@@ -63,64 +63,82 @@ FIN
 FIN
 
 
- */
 
-/*solucion sin utilizar mapas
-fun procesarCategoria(entradas: List<String>, indexInicial: Int): Int {
-    var index = indexInicial
-    val categoria = entradas[index]
-    index ++
-    val resultados = mutableMapOf<String, Int>()
-    val partidos = mutableMapOf<Pair<String, String>, Boolean>()
-    var totalPartidos =
-        0 // Procesamos cada línea hasta encontrar "FIN"
-    while (index < entradas.size) {
-        val line = entradas[index]
-        if (line == "FIN") {
-            index++
-            break
+Junior
+Buenisimos 3 Malisimos 0
+Buenillos 2 Malillos 1
+Buenillos 3 Malisimos 0
+Buenisimos 3 Malillos 0
+Buenisimos 2 Buenillos 1
+Malisimos 0 Buenisimos 3
+Malillos 1 Buenillos 2
+Malisimos 0 Buenillos 3
+Malillos 0 Buenisimos 3
+Buenillos 1 Buenisimos 2
+FIN
+Senior
+Abuelos 3 Abueletes 0
+Abueletes 2 Abuelos 1
+FIN
+FIN
+
+
+ */
+fun procesarResultados(resultados: List<String>): MutableMap<String, Int> {
+    val puntuaciones = mutableMapOf<String, Int>()
+    for (resultado in resultados) {
+        val datos = resultado.split(" ")
+        val parejaCasa = datos[0]
+        val setsCasa = datos[1].toInt()
+        val parejaVisitante = datos[2]
+        val setsVisitante = datos[3].toInt()
+    // Inicializar puntuaciones si no están presentes
+    puntuaciones.putIfAbsent(parejaCasa, 0)
+        puntuaciones.putIfAbsent(parejaVisitante, 0)
+    // Actualizar puntuaciones
+    if (setsCasa > setsVisitante) {
+        puntuaciones[parejaCasa] = puntuaciones[parejaCasa]!! + 2
+        puntuaciones[parejaVisitante] = puntuaciones[parejaVisitante]!! + 1 }
+    else { puntuaciones[parejaCasa] = puntuaciones[parejaCasa]!! + 1
+        puntuaciones[parejaVisitante] = puntuaciones[parejaVisitante]!! + 2 } }
+    return puntuaciones }
+fun contarNoJugados(totalEquipos: Int, totalResultados: Int): Int {
+    val totalPartidosEsperados = totalEquipos * (totalEquipos - 1)
+    return totalPartidosEsperados - totalResultados }
+fun contarEquipos(resultados: List<String>): Int {
+    val equipos = mutableListOf<String>()
+    for (resultado in resultados) {
+        val datos = resultado.split(" ")
+        val parejaCasa = datos[0]
+        val parejaVisitante = datos[2]
+        if (!equipos.contains(parejaCasa)) {
+            equipos.add(parejaCasa) }
+        if (!equipos.contains(parejaVisitante)) {
+            equipos.add(parejaVisitante) } }
+    return equipos.size }
+fun main() { val categorias = mutableMapOf<String, MutableList<String>>()
+    var linea: String
+    linea = readLine()!!
+    while (linea != "FIN") {
+        val nombreCategoria = linea
+        val resultados = mutableListOf<String>()
+        linea = readLine()!!
+        while (linea != "FIN") {
+            resultados.add(linea)
+            linea = readLine()!!
         }
-        // Dividimos la línea en partes y extraemos los datos
-        val parts = line.split(" ")
-        val equipoLocal = parts[0]
-        val setsLocal = parts[1].toInt()
-        val equipoVisitante = parts[2]
-        val setsVisitante = parts[3].toInt()
-        // Actualizamos los puntos de las parejas según el resultado del partido
-        if (setsLocal > setsVisitante) {
-            resultados[equipoLocal] = resultados.getOrDefault(equipoLocal, 0) + 2
-            resultados[equipoVisitante] = resultados.getOrDefault(equipoVisitante, 0) + 1
-        } else {
-            resultados[equipoVisitante] = resultados.getOrDefault(equipoVisitante, 0) + 2
-            resultados [equipoLocal] =
-            resultados.getOrDefault(equipoLocal, 0) + 1
-        }
-// Registramos el partido en el mapa de partidos
-        partidos[Pair(equipoLocal, equipoVisitante)] = true
-        partidos [Pair(equipoVisitante, equipoLocal)] = true
-        totalPartidos ++
-        index++
-    }
-// Determinamos el ganador de la categoría
-    val maxPuntos = resultados.maxByOrNull { it.value }?.value ?: 0
-    val ganadores = resultados.filter { it.value == maxPuntos }.keys
-// Imprimimos el resultado según si hay empate o no
-    if (ganadores.size > 1) {
-        println("EMPATE ${totalPartidos - partidos.size / 2}")
-    } else {
-        println("${ganadores.first()} ${totalPartidos - partidos.size / 2}")
-    }
-    return index
+        categorias[nombreCategoria] = resultados
+        linea = readLine()!! }
+    for ((categoria, resultados) in categorias) {
+        val totalEquipos = contarEquipos(resultados)
+        val puntuaciones = procesarResultados(resultados)
+        val partidosNoJugados = contarNoJugados(totalEquipos, resultados.size)
+    // Determinar la pareja ganadora
+    val maxPuntos = puntuaciones.values.maxOrNull()
+        val ganadores = puntuaciones.filterValues { it == maxPuntos }.keys
+        val resultado = if (ganadores.size == 1) ganadores.first() else "EMPATE"
+        println("$resultado $partidosNoJugados") }
 }
 
-fun main() {
-// Leemos todas las entradas de una vez
-    val entradas = generateSequence(::readLine).toList()
-    var index = 0
-// Procesamos las entradas hasta encontrar "FIN"
-    while (index < entradas.size) {
-        val categoria = entradas[index] if (categoria == "FIN") break
-// Procesamos cada categoría y actualizamos el índice
-        index = procesarCategoria(entradas, index)
 
- */
+
