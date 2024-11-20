@@ -1,4 +1,4 @@
-package Programacion01.listas
+package Programacion01.arrays
 
 /*
 
