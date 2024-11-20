@@ -93,7 +93,7 @@ fun procesarResultados(resultados: List<String>): MutableMap<String, Int> {
         val parejaVisitante = datos[2]
         val setsVisitante = datos[3].toInt()
     // Inicializar puntuaciones si no están presentes
-    puntuaciones.putIfAbsent(parejaCasa, 0)
+        puntuaciones.putIfAbsent(parejaCasa, 0)
         puntuaciones.putIfAbsent(parejaVisitante, 0)
     // Actualizar puntuaciones
     if (setsCasa > setsVisitante) {
@@ -116,7 +116,8 @@ fun contarEquipos(resultados: List<String>): Int {
         if (!equipos.contains(parejaVisitante)) {
             equipos.add(parejaVisitante) } }
     return equipos.size }
-fun main() { val categorias = mutableMapOf<String, MutableList<String>>()
+fun main() {
+    val categorias = mutableMapOf<String, MutableList<String>>()
     var linea: String
     linea = readLine()!!
     while (linea != "FIN") {
