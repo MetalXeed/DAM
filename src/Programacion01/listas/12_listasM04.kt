@@ -62,13 +62,33 @@ Resultado
 *         *
  */
 
-fun imprimirFiguras(){
-    //como tiene el mismo tamaño x puedo hacer un bucle con 2 anidados facilmente creo.
+fun imprimirFiguras(figura:Array<CharArray>,simetrica: Array<CharArray>){
+    var filas     = figura.size
+    var columnas  = figura[0].size
+    for (i in 0 until filas) {
+        for (j in 0 until columnas) {
+            print("${figura[i][j]} ")
+
+        }
+
+        for (j in 0 until columnas) {
+            print("${simetrica[i][j]} ")
+        }
+        println()
+    }
+    println()
 }
-fun getSimetrica(){
-    //convertir alista mutable.
-    //la matriz tiene el mismo tamaño
-    //los valores dentro de las listas se pueden invertir utilizando downto.
+fun getSimetrica(figura:Array<CharArray> ):Array<CharArray>{
+    var filas     = figura.size
+    var columnas  = figura[0].size
+    var simetrica = Array(filas) { CharArray(columnas) }
+
+    for (i in figura.indices){
+        for (j in figura[0].indices){
+            simetrica[i][j]=figura[i][columnas-j-1]
+        }
+    }
+    return simetrica
 }
 
 fun main() {
