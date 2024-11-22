@@ -27,8 +27,10 @@ M @ 	  	  	  	@
 @ 	  	  	  	@
 @ 	  	  	  	@
 
-Observa que la letra A, sólo ocupa 4 columnas y se le añade una  última columna a blancos para que todas las matrices sean de 5x5.
-Vamos a ayudar a hacer el programa a Winchi, pero no tienes que preocuparte por las matrices de letras que las hizo Winchi el fin de semana.  Las matrices están dentro de una clase llamada ABC directamente disponibles en esta pregunta.. Podemos acceder a las matrices:
+Observa que la letra A, sólo ocupa 4 columnas y se le añade una  última columna a blancos para que todas las
+matrices sean de 5x5. Vamos a ayudar a hacer el programa a Winchi, pero no tienes que preocuparte por las matrices
+de letras que las hizo Winchi el fin de semana.  Las matrices están dentro de una clase llamada ABC directamente
+disponibles en esta pregunta.. Podemos acceder a las matrices:
 
     a la letra A con ABC.A
     a la letra B con ABC.B
@@ -40,10 +42,13 @@ Vamos a ayudar a hacer el programa a Winchi, pero no tienes que preocuparte por 
     al guión con ABC.GUION
 
 Puedes visualizar si lo deseas las matrices que usa la pregunta consultando su código
+
 ENTRADA:
 En la primera línea un mensaje de amor
 En la segunda línea el nombre de la amada.
-Se puede indicar indiferentemente el texto en mayúsculas o minúsculas, la letra siempre se traduce a la misma matriz de caracteres.
+Se puede indicar indiferentemente el texto en mayúsculas o minúsculas, la letra siempre se traduce a la misma
+matriz de caracteres.
+
 SALIDA:
 Un banner con el formato: mensaje, nombreamada.
 
@@ -62,3 +67,9 @@ Resultado
    @         @@@@  @@@@@   @   @@@@          @   @@@@@ @@@@@ @           @@@@  @  @  @@@@    @
 
  */
+fun GenerarBaner(mansaje:String, nombre:String){
+}
+fun main(){
+    var input = readLine()
+    var name  = readLine()
+}
