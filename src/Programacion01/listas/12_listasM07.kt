@@ -1,23 +1,37 @@
 package Programacion01.listas
 
+import java.awt.Dimension
+import kotlin.math.sqrt
+
 /*
 Bocatas de Calamares
 
-Tengo un plano de la ciudad cuyo punto central es mi casa. El mapa consiste en una matriz donde cada celda  suponemos que tiene un alto y  ancho  de 1 hectómetro en la realidad. La matriz es cuadrada y de dimensión  d impar. Estoy obsesionado con los bocatas de calamares y el mapa almacena los puntos de venta de bocatas de calamares alrededor de mi casa. Siempre pasa lo mismo, que los bocatas más ricos y más baratos suelen estar lejos de mi casa pero por otro lado soy muy perezoso así que según las ganas con las que me encuentre de andar querré ir a uno u a otro buscando una solución de compromiso según mi momento. Cada celda del mapa puede almacenar:
+Tengo un plano de la ciudad cuyo punto central es mi casa. El mapa consiste en una matriz donde cada celda
+suponemos que tiene un alto y  ancho  de 1 hectómetro en la realidad. La matriz es cuadrada y de dimensión  d
+impar. Estoy obsesionado con los bocatas de calamares y el mapa almacena los puntos de venta de bocatas de
+calamares alrededor de mi casa. Siempre pasa lo mismo, que los bocatas más ricos y más baratos suelen estar
+lejos de mi casa pero por otro lado soy muy perezoso así que según las ganas con las que me encuentre de andar
+querré ir a uno u a otro buscando una solución de compromiso según mi momento. Cada celda del mapa puede
+almacenar:
 
-    CX para indicar que es un punto de venta de bocatas de calamares. X es un número entero para identificar el punto de venta. Se garantiza que no habrá dos puntos de venta con la misma  X y que  siempre X<99 y X<d.
+    CX para indicar que es un punto de venta de bocatas de calamares. X es un número entero para identificar el
+    punto de venta. Se garantiza que no habrá dos puntos de venta con la misma  X y que  siempre X<99 y X<d.
 
     NI (no interesa)para indicar  cualquier otra cosa que no me interesa en absoluto.
 
-Me gustaría que me hicieras un programa de forma que yo le indique un mapa y un radio y el programa me indique los punto de venta de bocatas de calamares dentro del radio indicado. Recuerda que mi casa está en el centro del plano.
+Me gustaría que me hicieras un programa de forma que yo le indique un mapa y un radio y el programa me indique los
+punto de venta de bocatas de calamares dentro del radio indicado. Recuerda que mi casa está en el centro del plano.
 
  ENTRADA:
 
-En la primera línea un entero que indica  la dimensión d  de la matriz con d>0 y a continuación en la misma línea separada por un espacio un número real para indicar el radio de búsqueda con r>0.0 en hectómetros, por ejemplo un radio de 2.5 hectómetros se corresponde con 250 metros Por último vienen d líneas que describen  el mapa.
+En la primera línea un entero que indica  la dimensión d  de la matriz con d>0 y a continuación en la misma línea
+separada por un espacio un número real para indicar el radio de búsqueda con r>0.0 en hectómetros, por ejemplo un
+radio de 2.5 hectómetros se corresponde con 250 metros Por último vienen d líneas que describen  el mapa.
 
 SALIDA:
 
-Una lista de los puntos de venta de bocadillos de calamares dentro del radio. Cada línea de la salida contendrá un punto de bocata de calamares sleccionado junto con la distancia en hectómertos a la que se encuentra.
+Una lista de los puntos de venta de bocadillos de calamares dentro del radio. Cada línea de la salida contendrá un
+punto de bocata de calamares sleccionado junto con la distancia en hectómertos a la que se encuentra.
 
 Por ejemplo:
 Entrada
@@ -39,3 +53,41 @@ C6 a 1.4142135623730951
 C7 a 2.23606797749979
 
  */
+fun venta(mapa:MutableList<List<String>>,dimension:Int,radio:Double):MutableMap<String,Double>{
+    val xCentro   = dimension/2
+    val yCentro   = dimension/2
+    var distancia = 0.0
+    var resultados = mutableMapOf<String,Double>()
+
+    for (i in 0 until dimension){
+        for(j in 0 until dimension){
+            if (mapa[i][j]!="NI") {
+                distancia = sqrt(((i-xCentro)*(i-xCentro)+(j - yCentro)*(j - yCentro)).toDouble())
+                if(distancia <= radio) resultados[mapa[i][j]]=distancia
+            }
+        }
+    }
+    return resultados
+}
+
+
+
+fun imprimirMapa(resultados:MutableMap<String,Double>){
+    for ((tienda,distancia) in resultados)
+        println("${tienda} a ${distancia}")
+}
+
+fun main(){
+    var matriz:MutableList<List<String>> = mutableListOf()
+    var input = readLine()
+    if (!input.isNullOrBlank()) {
+        var entrada = input.split(" ")
+        var dimension = entrada[0].toInt()
+        var radio = entrada[1].toDouble()
+
+        for(i in 0 until dimension){
+            matriz.add(readLine()!!.split(" "))
+        }
+        imprimirMapa(venta(matriz,dimension,radio))
+    }
+}
