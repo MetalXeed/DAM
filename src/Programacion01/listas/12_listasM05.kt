@@ -66,10 +66,70 @@ Resultado
    @         @     @   @  @ @  @             @   @   @ @   @  @          @  @  @  @  @  @    @
    @         @@@@  @@@@@   @   @@@@          @   @@@@@ @@@@@ @           @@@@  @  @  @@@@    @
 
+  @       @    @@@@@@   @@@@@      @   @@@@@@@   @     @@@@ @@@@ @@@@ @   @
+  @       @    @   @@   @@          @ @ @   @@   @     @  @ @  @ @  @  @ @
+  @       @    @   @@   @@@@         @  @   @@   @     @@@@ @@@@ @@@@   @
+  @       @    @   @ @ @ @           @  @   @@   @ @   @  @ @  @ @  @   @
+  @       @@@@ @@@@@  @  @@@@        @  @@@@@@@@@@@    @@@@ @  @ @@@@   @
+   @         @     @@@@@ @   @ @@@@        @   @ @@@@@ @   @
+   @         @     @   @ @   @ @            @ @  @   @ @   @
+   @         @     @   @ @   @ @@@           @   @   @ @   @
+   @         @     @   @  @ @  @             @   @   @ @   @  @
+   @         @@@@  @@@@@   @   @@@@          @   @@@@@ @@@@@ @
+
+
  */
-fun GenerarBaner(mansaje:String, nombre:String){
+fun generarBanner(mensaje:String, nombre:String): Array<CharArray>{
+    val abecedario = arrayOf( ABC.A, ABC.B, ABC.C, ABC.D, ABC.E, ABC.F, ABC.G, ABC.H, ABC.I, ABC.J, ABC.K, ABC.L, ABC.M, ABC.N, ABC.O, ABC.P, ABC.Q, ABC.R, ABC.S, ABC.T, ABC.U, ABC.V, ABC.W, ABC.X, ABC.Y, ABC.Z )
+    val caracteres    = mensaje.uppercase() + ", " + nombre.uppercase()
+    val listaMatrices = mutableListOf<Array<CharArray>>()
+    for (caracter in caracteres){
+        val matrizCaracter = when(caracter){
+            in 'A'..'Z' -> abecedario[caracter - 'A']
+            ' ' -> ABC.BLANCO
+            ',' -> ABC.COMA
+            '-' -> ABC.GUION
+            else -> ABC.BLANCO
+        }
+        listaMatrices.add(matrizCaracter)
+    }
+    val filas = 5
+    val columnasLetra = 5
+    val totalColumnas = listaMatrices.size * (columnasLetra+1) //para el desplazamiento que introduzco despues de cada letra
+
+    val banner = Array(filas) {CharArray(totalColumnas) {' '} }
+    for (i in 0 until filas){
+        var columnaActual = 0
+
+        for (matriz in listaMatrices){
+            for (j in 0 until columnasLetra) {
+                banner[i][columnaActual] = matriz[i][j]
+                columnaActual++
+            }
+            columnaActual++//desplazo la posicion para que quede un espacio entre letras
+        }
+    }
+    return banner
+}
+
+
+fun printBanner(banner:Array<CharArray>){
+    var filas = banner.size
+    var columnas = banner[0].size
+    for(i in 0 until filas){
+        print(" ") //espacacio antes de nada
+        for (j in 0 until  columnas) {
+            print("${banner[i][j]}")
+            //if (j % 4 == 0) print(" ")
+        }
+        println()
+    }
 }
 fun main(){
     var input = readLine()
     var name  = readLine()
+
+    if (!input.isNullOrBlank() && !name.isNullOrBlank()){
+        printBanner(generarBanner(input, name))
+    }
 }
