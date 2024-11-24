@@ -46,7 +46,58 @@ Entrada 	Resultado
 -***
 0 0
 
-
+5 4
+*--**
+---*-
+---**
+***--
+4 5
+**-*
+****
+*--*
+**-*
+-***
+0 0
 
 
  */
+
+fun seisOMas(matriz:MutableList<CharArray>):Int{
+    //val mapa = mutableMapOf<Int,Int>() //lo uso para guardar cuantas posiciones hay rodeadas con cuantas minas
+    val alto  = matriz.size
+    val ancho = matriz[0].size
+    var minasRodeando = 0
+    var masDeSeis = 0
+
+    for (l in 0 until alto) {
+        for(m in 0 until ancho){
+            if (matriz[l][m]=='*') continue
+            minasRodeando = 0
+            for (i in -1..+1){
+                for (j in -1..+1){
+                    if ((l+i in 0 until alto)&&(m+j in 0 until ancho)&&(matriz[l+i][m+j]=='*'))
+                        minasRodeando++
+                }
+            }
+            if(minasRodeando >=6) masDeSeis++
+        }
+    }
+    return masDeSeis
+}
+fun main(){
+
+    var entrada = readLine()
+    while(!entrada.isNullOrBlank() && !entrada.matches(Regex("^0.*")) && !entrada.matches(Regex("^.*0$")) ){
+
+        var ancho = entrada[0].digitToInt()
+        var alto = entrada[2].digitToInt()
+        var matriz = MutableList(alto){CharArray(ancho){' '}}
+
+        for(n in 0 until alto){
+            var linea:CharArray = readLine()!!.toCharArray()
+            matriz[n]=(linea)
+        }
+        println(seisOMas(matriz))
+        entrada = readLine()
+    }
+}
