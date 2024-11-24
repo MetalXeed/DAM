@@ -69,7 +69,6 @@ fun esIdentidad(matriz:MutableList<List<Int>>):String{
     if (alto != ancho) return "NO" //para descartar matrices no cuadradas,
     for(i in 0 until alto){
         for(j in 0 until alto){
-            print(matriz[i][j])
             if ((i == j) && matriz[i][j] != 1) return "NO"
             else if (i == j) continue
             else if (matriz[i][j]!=0) {
@@ -77,7 +76,6 @@ fun esIdentidad(matriz:MutableList<List<Int>>):String{
                 break
             }
         }
-        println()
     }
     return respuesta
 }
