@@ -1,0 +1,366 @@
+
+1. Introducción a la Recursividad
+Teoría:
+    • Concepto de recursividad
+    • Estructura de una función recursiva
+    • Pila de llamadas y función recursiva
+Ejercicio:
+    • Implementar una función recursiva simple, como la función imprimir(), que imprima números en orden inverso.
+2. Caso Base y Caso Recursivo
+Teoría:
+    • Definición y ejemplos de caso base
+    • Definición y ejemplos de caso recursivo
+Ejercicio:
+    • Calcular el factorial de un número utilizando recursividad.
+    • Crear una función recursiva para multiplicar dos números enteros.
+3. Backtracking y Búsqueda Exhaustiva
+Teoría:
+    • Definición de backtracking
+    • Búsqueda exhaustiva vs. backtracking
+    • Árbol de posibilidades
+Ejercicio:
+    • Generar todas las combinaciones posibles de una lista de números usando una función recursiva.
+4. Podas en Backtracking
+Teoría:
+    • Concepto de poda en backtracking
+    • Ejemplo práctico de poda
+Ejercicio:
+    • Modificar el ejercicio anterior para incluir una poda que descarte combinaciones específicas.
+5. Resolver Laberintos con Backtracking
+Teoría:
+    • Concepto de laberinto y caminos
+    • Función recursiva para encontrar un camino en un laberinto
+Ejercicio:
+    • Implementar la función hayCamino() para encontrar un camino desde el inicio hasta el final de un laberinto dado.
+6. Mejorar la Visualización
+Teoría:
+    • Importancia de la visualización en la depuración
+    • Uso de colores en la impresión de resultados
+Ejercicio:
+    • Implementar una función para imprimir el laberinto con colores, resaltando los caminos y las celdas visitadas.
+7. Combinación de Técnicas
+Teoría:
+    • Integración de recursividad, backtracking y poda
+Ejercicio:
+    • Resolver un problema complejo que combine todos los conceptos aprendidos, como encontrar todas las soluciones
+    posibles en un laberinto con restricciones adicionales.
+
+
+
+1. Introducción a la Recursividad
+Teoría
+Recursividad: La recursividad es una técnica de programación en la que una función se llama a sí misma. Es útil para
+resolver problemas que pueden ser divididos en subproblemas más pequeños del mismo tipo.
+Pila de Llamadas: Cuando una función se llama a sí misma, se añade una nueva entrada en la pila de llamadas. Cada vez
+que la función se invoca, una nueva instancia de la función se añade a la pila. Es importante asegurarse de que la
+función tenga un caso base para evitar llamadas infinitas que pueden causar un desbordamiento de pila (Stack Overflow).
+Estructura de una Función Recursiva: Una función recursiva debe contener:
+    1. Caso Base: Una condición en la que la función se detiene y no se llama a sí misma.
+    2. Caso Recursivo: Una condición en la que la función se llama a sí misma con diferentes parámetros.
+
+Ejercicio 1: Función Recursiva Simple
+Vamos a crear una función recursiva que imprima números desde n hasta 1.
+
+Código:
+kotlin
+fun imprimir(n: Int) {
+    if (n > 0) {
+        println(n)
+        imprimir(n - 1) // Llamada recursiva
+    }
+}
+
+fun main() {
+    imprimir(5) // Ejemplo de uso
+}
+Explicación:
+La función imprimir(n) toma un número entero n.
+
+El caso base es cuando n es 0 o menos. En este caso, la función no se llama a sí misma.
+
+El caso recursivo es cuando n es mayor que 0. La función imprime el valor de n y luego se llama a sí misma con el valor n - 1.
+
+Ejercicio 2: Cálculo del Factorial con Recursividad
+Vamos a calcular el factorial de un número utilizando recursividad.
+
+Código:
+kotlin
+fun factorial(n: Int): Int {
+    return if (n == 0) 1 else n * factorial(n - 1) // Caso base y caso recursivo
+}
+
+fun main() {
+    println(factorial(5)) // Ejemplo de uso
+}
+Explicación:
+La función factorial(n) toma un número entero n.
+
+El caso base es cuando n es 0. En este caso, la función devuelve 1.
+
+El caso recursivo es cuando n es mayor que 0. La función devuelve n multiplicado por el resultado de factorial(n - 1).
+
+2. Caso Base y Caso Recursivo
+Teoría
+Caso Base: El caso base es una condición en la que la función recursiva se detiene y no se llama a sí misma. Es esencial
+para evitar llamadas infinitas y desbordamientos de pila (stack overflow).
+
+Caso Recursivo: El caso recursivo es una condición en la que la función se llama a sí misma con diferentes parámetros.
+La llamada recursiva debe acercar el problema a su caso base.
+
+Ejercicio 3: Multiplicación Recursiva
+Ahora vamos a implementar una función recursiva que multiplique dos números enteros utilizando sumas sucesivas. Este
+ejercicio nos ayudará a entender cómo una operación simple puede ser implementada recursivamente.
+Ahora vamos a implementar una función recursiva que multiplique dos números enteros utilizando sumas sucesivas. Este ejercicio nos ayudará a entender cómo una operación simple puede ser implementada recursivamente.
+
+Código:
+kotlin
+fun multiplicar(a: Int, b: Int): Int {
+    return when {
+        b == 0 -> 0 // Caso base
+        b > 0 -> a + multiplicar(a, b - 1) // Caso recursivo cuando b es positivo
+        else -> -a + multiplicar(a, b + 1) // Caso recursivo cuando b es negativo
+    }
+}
+
+fun main() {
+    println(multiplicar(3, 4))  // Debería imprimir 12
+    println(multiplicar(2, -5)) // Debería imprimir -10
+    println(multiplicar(-3, 3)) // Debería imprimir -9
+}
+Explicación:
+Factorial:
+
+Caso base: n == 0. Devuelve 1.
+
+Caso recursivo: n > 0. Devuelve n * factorial(n - 1).
+
+Multiplicación Recursiva:
+
+Caso base: b == 0. Devuelve 0.
+
+Caso recursivo para b positivo: b > 0. Devuelve a + multiplicar(a, b - 1).
+
+Caso recursivo para b negativo: b < 0. Devuelve -a + multiplicar(a, b + 1).
+
+3. Backtracking y Búsqueda Exhaustiva
+Teoría
+Backtracking: El backtracking es una técnica que se utiliza para resolver problemas mediante la búsqueda exhaustiva de
+todas las posibles soluciones, pero aplicando criterios de poda que eliminan ciertos caminos para ganar eficiencia. El
+concepto clave aquí es explorar múltiples caminos y retroceder cuando se detecta que un camino no conduce a una solución.
+
+Búsqueda Exhaustiva: La búsqueda exhaustiva implica explorar todas las posibles soluciones para un problema. Es una
+técnica de fuerza bruta y puede ser ineficiente si no se aplica con criterios de poda.
+
+Árbol de Posibilidades: Un árbol de posibilidades es una representación visual de todas las combinaciones posibles de
+un problema. Cada nodo del árbol representa una decisión, y cada rama representa una posible opción o camino.
+
+Ejercicio 1: Generar Todas las Combinaciones Posibles
+Vamos a crear una función recursiva que genere todas las combinaciones posibles de una lista de números con una longitud específica.
+
+Código:
+kotlin
+fun combinar(longitud: Int, numeros: List<String>): List<String> {
+    val result = mutableListOf<String>()
+
+    // Caso base
+    if (longitud == 1) {
+        return numeros
+    }
+
+    // Caso recursivo
+    val sublista = combinar(longitud - 1, numeros)
+
+    for (numero in numeros) {
+        for (numeroCombinado in sublista) {
+            result.add(numero + numeroCombinado)
+        }
+    }
+    return result
+}
+
+fun main() {
+    val numeros = listOf("1", "2", "3")
+
+    println("Todas las combinaciones de 1, 2 y 3 con longitud 3")
+    val longitud = 3
+    val result = combinar(longitud, numeros)
+    for (s in result) {
+        println(s)
+    }
+}
+Explicación:
+Caso Base:
+
+Cuando longitud es 1, simplemente devuelve la lista de números, ya que las combinaciones de longitud 1 son los números mismos.
+
+Caso Recursivo:
+
+Cuando longitud es mayor que 1, llama a la función combinar con longitud - 1 para obtener subcombinaciones.
+
+Luego, combina cada número con cada subcombinación para generar las combinaciones de longitud actual.
+
+Ejercicio 2: Añadir Podas
+Ahora, vamos a modificar el ejercicio anterior para incluir una poda que descarte combinaciones específicas. Por ejemplo, vamos a podar si la suma parcial o total de las cifras es mayor o igual a un límite específico.
+
+Código:
+kotlin
+fun combinarConPoda(longitud: Int, numeros: List<String>, sumaAcumulada: Int): List<String> {
+    val limite = 4 // Si se alcanza el límite, se poda
+    val result: MutableList<String> = ArrayList()
+
+    // Caso base
+    if (longitud == 1) {
+        for (numero in numeros) {
+            if (sumaAcumulada + numero.toInt() < limite) {
+                result.add(numero)
+            }
+        }
+        return result
+    }
+
+    // Caso recursivo
+    for (numero in numeros) {
+        val nuevaSuma = sumaAcumulada + numero.toInt()
+        // Poda: devuelve lista vacía y evita llamada recursiva
+        if (nuevaSuma >= limite) return result
+        val sublista = combinarConPoda(longitud - 1, numeros, nuevaSuma)
+        for (numeroCombinado in sublista) {
+            result.add(numero + numeroCombinado)
+        }
+    }
+    return result
+}
+
+fun main() {
+    val numeros = listOf("1", "2", "3")
+
+    println("Combinaciones de 1, 2 y 3 con longitud 3 y poda si suma >= que el límite")
+    val longitud = 3
+    val result = combinarConPoda(longitud, numeros, 0)
+    for (s in result) {
+        println(s)
+    }
+}
+Explicación:
+Hemos añadido una variable limite que se utiliza para podar combinaciones no deseadas.
+
+La poda se realiza antes de la llamada recursiva para evitar explorar combinaciones que no cumplen con los criterios.
+4. Podas en Backtracking
+Teoría
+Poda en Backtracking: La poda en backtracking es una técnica utilizada para eliminar ramas del árbol de posibilidades que no pueden conducir a una solución. Esto permite reducir significativamente el espacio de búsqueda y aumentar la eficiencia del algoritmo.
+
+Ejemplo Práctico: Vamos a modificar el ejercicio anterior para incluir una poda que descarte combinaciones específicas. Vamos a podar si la suma parcial o total de las cifras es mayor o igual a un límite específico.
+
+Ejercicio: Implementar Podas
+Código:
+kotlin
+fun combinarConPoda(longitud: Int, numeros: List<String>, sumaAcumulada: Int): List<String> {
+    val limite = 4 // Si se alcanza el límite, se poda
+    val result: MutableList<String> = ArrayList()
+
+    // Caso base
+    if (longitud == 1) {
+        for (numero in numeros) {
+            if (sumaAcumulada + numero.toInt() < limite) {
+                result.add(numero)
+            }
+        }
+        return result
+    }
+
+    // Caso recursivo
+    for (numero in numeros) {
+        val nuevaSuma = sumaAcumulada + numero.toInt()
+        // Poda: devuelve lista vacía y evita llamada recursiva
+        if (nuevaSuma >= limite) return result
+        val sublista = combinarConPoda(longitud - 1, numeros, nuevaSuma)
+        for (numeroCombinado in sublista) {
+            result.add(numero + numeroCombinado)
+        }
+    }
+    return result
+}
+
+fun main() {
+    val numeros = listOf("1", "2", "3")
+
+    println("Combinaciones de 1, 2 y 3 con longitud 3 y poda si suma >= que el límite")
+    val longitud = 3
+    val result = combinarConPoda(longitud, numeros, 0)
+    for (s in result) {
+        println(s)
+    }
+}
+Explicación:
+Hemos añadido una variable limite que se utiliza para podar combinaciones no deseadas.
+
+La poda se realiza antes de la llamada recursiva para evitar explorar combinaciones que no cumplen con los criterios.
+
+5. Resolver Laberintos con Backtracking
+Teoría
+Laberintos y Caminos: Resolver un laberinto implica encontrar un camino desde un punto de inicio hasta un punto final,
+evitando obstáculos. Vamos a usar una matriz para representar el laberinto, donde R es el ratón, Q es el queso, # son
+las paredes y 0 son las celdas transitables.
+
+Función Recursiva: La función recursiva hayCamino() explorará el laberinto en busca del queso. Utilizaremos la
+recursividad para moverse por las celdas adyacentes.
+
+Ejercicio: Resolver un Laberinto
+Código:
+kotlin
+fun hayCamino(i: Int, j: Int, laberinto: List<MutableList<Char>>): Boolean {
+    if (i < 0 || i >= laberinto.size || j < 0 || j >= laberinto[i].size) return false
+
+    if (laberinto[i][j] == '#') return false
+    if (laberinto[i][j] == '.') return false
+    if (laberinto[i][j] == 'v') return false
+    if (laberinto[i][j] == 'Q') return true
+
+    //si llego aquí, la celda es '0' o 'R' y la marco como visitada
+    laberinto[i][j] = '.'
+
+    // Exploración recursiva en 4 direcciones
+    if (hayCamino(i - 1, j, laberinto)) return true // norte
+    if (hayCamino(i + 1, j, laberinto)) return true // sur
+    if (hayCamino(i, j + 1, laberinto)) return true // este
+    if (hayCamino(i, j - 1, laberinto)) return true // oeste
+
+    //si llego aquí es que no hubo solución por ninguna dirección y marco como visitada sin solución
+    laberinto[i][j] = 'v'
+    return false
+}
+
+fun main() {
+    val laberinto = listOf(
+        mutableListOf('R', '#', '0', '0', '0'),
+        mutableListOf('0', '0', '0', '#', '0'),
+        mutableListOf('#', '#', '#', '0', '0'),
+        mutableListOf('0', '0', '0', '0', '#'),
+        mutableListOf('0', '0', '#', '0', '0'),
+        mutableListOf('0', '0', '0', '#', '0'),
+        mutableListOf('0', '#', '0', '#', '#'),
+        mutableListOf('0', '0', 'Q', '#', '0')
+    )
+
+    if (!hayCamino(0, 0, laberinto)) {
+        println("No hay solución")
+    } else {
+        println("¡Hay solución!")
+    }
+}
+Explicación:
+Casos Base:
+
+Si las coordenadas i o j están fuera de rango, devuelve false.
+
+Si la celda actual es una pared ('#'), ya ha sido visitada ('.'), o ya se marcó como sin solución ('v'), devuelve false.
+
+Si la celda actual es el queso ('Q'), devuelve true.
+
+Caso Recursivo:
+
+Marca la celda actual como visitada ('.').
+
+Explora recursivamente las celdas adyacentes (norte, sur, este, oeste).
+
+Si ninguna dirección conduce a una solución, marca la celda como sin solución ('v') y devuelve false.
