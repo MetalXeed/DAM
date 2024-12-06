@@ -55,3 +55,45 @@ Resultado
 (7,0)(6,0)(5,0)(4,0)(3,0)(3,1)(4,1)(5,1)(5,2)(6,2)(7,2)
 
  */
+fun hayCamino(fila:Int,columna:Int,laberinto:List<MutableList<Char>>):MutableList<List<Int>>{
+    var listaSolucion = mutableListOf<List<Int>>()
+    if(laberinto[fila][columna]=='Q'){
+        listaSolucion.add(listOf(fila,columna))
+        return listaSolucion
+    }
+    laberinto[fila][columna]='V' //posicion ya recorrida.
+    var nfila=fila
+    var ncolumna=columna
+
+    while (nfila+1 in 0..laberinto.size-1 && ncolumna+1 in 0..laberinto[0].size-1){
+        for (i in -1..1){
+            if (laberinto[nfila+i][ncolumna]!='#'){
+                listaSolucion.add(listOf(nfila+i,ncolumna))
+                hayCamino(nfila+i,ncolumna,laberinto)
+                nfila=nfila+i
+            }
+            else if (laberinto[nfila][ncolumna+i]!='#'){
+                listaSolucion.add(listOf(nfila,ncolumna+i))
+                hayCamino(nfila,ncolumna+i,laberinto)
+                ncolumna = ncolumna+i
+            }
+        }
+
+    }
+    return mutableListOf(listOf(0)) // no se encontro Q
+}
+fun main(){
+    val laberinto = listOf(
+        mutableListOf('R', '#', '0', '0', '0'),
+        mutableListOf('0', '0', '0', '#', '0'),
+        mutableListOf('#', '#', '#', '0', '0'),
+        mutableListOf('0', '0', '0', '0', '#'),
+        mutableListOf('0', '0', '#', '0', '0'),
+        mutableListOf('0', '0', '0', '#', '0'),
+        mutableListOf('0', '#', '0', '#', '#'),
+        mutableListOf('0', '0', 'Q', '#', '0')
+    )
+
+    // Ratón sale de 0,0
+    println(hayCamino(0, 0, laberinto))
+}
