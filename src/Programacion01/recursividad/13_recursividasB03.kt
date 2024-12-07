@@ -77,3 +77,56 @@ TAAAAAA
 ---------------------------------------------
 
  */
+
+/*
+fun esPosicionValida(fila: Int, columna: Int, filas: Int, columnas: Int): Boolean {
+    return fila in 0 until filas && columna in 0 until columnas
+}
+
+fun contaminarPiscina(piscina: Array<CharArray>, fila: Int, columna: Int, filas: Int, columnas: Int) {
+    // Si la posición no es válida o es un tabique, retornar
+    if (!esPosicionValida(fila, columna, filas, columnas) || piscina[fila][columna] != 'A') {
+        return
+    }
+
+    // Marcar la celda actual como contaminada
+    piscina[fila][columna] = 'R'
+
+    // Direcciones: norte, sur, este, oeste
+    val direcciones = listOf(
+        listOf(-1, 0), // Norte
+        listOf(1, 0),  // Sur
+        listOf(0, -1), // Oeste
+        listOf(0, 1)   // Este
+    )
+
+    for (dir in direcciones) {
+        val nfila = fila + dir[0]
+        val ncolumna = columna + dir[1]
+        contaminarPiscina(piscina, nfila, ncolumna, filas, columnas)
+    }
+}
+
+fun main() {
+    var entrada = readLine()
+    while (entrada != null && entrada != "0 0") {
+        val (filas, columnas) = entrada.split(" ").map { it.toInt() }
+        val piscina = Array(filas) { readLine()!!.toCharArray() }
+        val (filaContaminante, columnaContaminante) = readLine()!!.split(" ").map { it.toInt() }
+
+        if (esPosicionValida(filaContaminante, columnaContaminante, filas, columnas) &&
+            piscina[filaContaminante][columnaContaminante] == 'A') {
+            contaminarPiscina(piscina, filaContaminante, columnaContaminante, filas, columnas)
+        }
+
+        // Imprimir la piscina contaminada
+        for (fila in piscina) {
+            println(fila.joinToString(""))
+        }
+        println("---------------------------------------------")
+
+        entrada = readLine()
+    }
+}
+
+ */

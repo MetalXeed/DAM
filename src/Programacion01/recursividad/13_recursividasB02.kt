@@ -45,3 +45,102 @@ F..
 
 
  */
+fun esPosicionValida():Boolean{
+    return (true)
+}
+fun main(){
+
+    var entrada = readLine()
+    while(!entrada.isNullOrEmpty()){
+        var dimAsteroides = entrada.split(" ").map { it.toInt() }
+        var campoAsteroides = mutableListOf<CharArray>()
+        for (x in 0..dimAsteroides[0]-1){
+            entrada = readLine()
+            if (!entrada.isNullOrEmpty()){
+                var filaAsteroides = entrada.toCharArray()
+                campoAsteroides.add(filaAsteroides)
+            }
+
+        }
+    }
+}
+
+/*
+fun esPosicionValida(fila: Int, columna: Int, laberinto: List<CharArray>): Boolean {
+    val F = laberinto.size
+    val C = laberinto[0].size
+    return fila in 0 until F && columna in 0 until C && laberinto[fila][columna] != '*'
+}
+
+fun dfs(laberinto: List<CharArray>, fila: Int, columna: Int, finFila: Int, finColumna: Int, visitados: Array<BooleanArray>): Boolean {
+    // Caso base: hemos llegado a la celda final
+    if (fila == finFila && columna == finColumna) {
+        return true
+    }
+
+    // Marcar la celda actual como visitada
+    visitados[fila][columna] = true
+
+    // Direcciones: norte, este, sur, oeste
+    val direcciones = listOf(
+        listOf(-1, 0), // Norte
+        listOf(0, 1),  // Este
+        listOf(1, 0),  // Sur
+        listOf(0, -1)  // Oeste
+    )
+
+    // Intentar moverse en cada dirección
+    for (dir in direcciones) {
+        val nfila = fila + dir[0]
+        val ncolumna = columna + dir[1]
+
+        if (esPosicionValida(nfila, ncolumna, laberinto) && !visitados[nfila][ncolumna]) {
+            // Realizar la llamada recursiva
+            if (dfs(laberinto, nfila, ncolumna, finFila, finColumna, visitados)) {
+                return true
+            }
+        }
+    }
+
+    // Desmarcar la celda actual (backtracking)
+    visitados[fila][columna] = false
+    return false
+}
+
+fun main() {
+    var entrada = readLine()
+    while (!entrada.isNullOrEmpty()) {
+        val (F, C) = entrada.split(" ").map { it.toInt() }
+        val laberinto = mutableListOf<CharArray>()
+
+        var inicioFila = 0
+        var inicioColumna = 0
+        var finFila = 0
+        var finColumna = 0
+
+        for (i in 0 until F) {
+            entrada = readLine()
+            if (!entrada.isNullOrEmpty()) {
+                val fila = entrada.toCharArray()
+                laberinto.add(fila)
+                if ('S' in fila) {
+                    inicioFila = i
+                    inicioColumna = fila.indexOf('S')
+                }
+                if ('F' in fila) {
+                    finFila = i
+                    finColumna = fila.indexOf('F')
+                }
+            }
+        }
+
+        val visitados = Array(F) { BooleanArray(C) { false } }
+        val resultado = if (dfs(laberinto, inicioFila, inicioColumna, finFila, finColumna, visitados)) "SI" else "NO"
+        println(resultado)
+
+        entrada = readLine()
+    }
+}
+
+
+ */
