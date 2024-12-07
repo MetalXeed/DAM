@@ -6,6 +6,8 @@ package Programacion01.ochoReinas
 * Fecha:24/12/06
 * Ejecicio: 8 reinas
  */
+
+
 fun ochoReinas(matriz:Array<CharArray>,fila:Int):Boolean{
     val n=matriz.size
 
@@ -63,7 +65,7 @@ fun imprimirTablero(matriz:Array<CharArray>){
         println()
     }
 }
-/*
+
 fun main(){
     var entrada = readLine()
     while (!entrada.isNullOrBlank()&& !entrada.equals("0")){
@@ -77,4 +79,3 @@ fun main(){
     }
 }
 
- */
