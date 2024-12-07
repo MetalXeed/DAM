@@ -52,3 +52,21 @@ println(mulRusa(210,10000)) 2100000
 println(mulRusa(105,68))    7140
 
  */
+
+fun mulRusa(izq:Int,der:Int):Int {
+    if (der == 0) return 0
+    if (der == 1) return izq
+
+    val suma = if (der % 2 != 0) izq else 0
+
+    return suma + mulRusa(izq*2,der/2)
+
+}
+
+fun main(){
+    println(mulRusa(105,1))     //105
+    println(mulRusa(1,105))     //105
+    println(mulRusa(1999,33))   //65967
+    println(mulRusa(210,10000)) //2100000
+    println(mulRusa(105,68))    //7140
+}
