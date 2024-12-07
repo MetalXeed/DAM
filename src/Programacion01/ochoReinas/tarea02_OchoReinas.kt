@@ -1,5 +1,6 @@
 package Programacion01.ochoReinas
 
+
 /*
 * Autor: Jose Guimarey Muñiz
 * Fecha:24/12/06
@@ -62,7 +63,7 @@ fun imprimirTablero(matriz:Array<CharArray>){
         println()
     }
 }
-
+/*
 fun main(){
     var entrada = readLine()
     while (!entrada.isNullOrBlank()&& !entrada.equals("0")){
@@ -75,3 +76,5 @@ fun main(){
         entrada = readLine()
     }
 }
+
+ */
