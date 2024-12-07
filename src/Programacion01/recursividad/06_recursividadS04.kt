@@ -38,3 +38,28 @@ Resultado
 *
 -------------------------
  */
+fun printL(n:Int){ //imprime linea de asteriscos
+    if (n==1) {
+        print('*')
+        println()
+        return
+    }
+    print('*')
+    printL(n-1)
+}
+fun imprimirT(n:Int){ //disminuye el n de asteriscos por linea
+    if (n==1) {
+        printL(1)
+        return
+    }
+    printL(n)
+    imprimirT(n-1)
+}
+fun main(){
+    imprimirT(5)
+    println("-------------------------")
+    imprimirT(1)
+    println("-------------------------")
+    imprimirT(2)
+    println("-------------------------")
+}

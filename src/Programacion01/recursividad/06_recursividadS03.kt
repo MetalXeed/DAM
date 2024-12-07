@@ -39,3 +39,13 @@ println(fibonacci(2))   1
 println(fibonacci(13))  133
 println(fibonacci(20))  6765
 */
+fun fibonacci(n:Int):Int{
+    if(n==0) return 0
+    if(n==1) return 1
+    else return fibonacci(n-1) + fibonacci(n-2)
+
+}
+
+fun main(){
+    println(fibonacci(13))
+}
