@@ -1,4 +1,4 @@
-package Programacion01.Plantilla
+package Programacion01.Preparacion01
 /*
 1. Plantilla para Lectura de Entrada y Procesamiento de Datos
 

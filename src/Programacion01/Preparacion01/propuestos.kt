@@ -1,4 +1,4 @@
-package Programacion01.Plantilla
+package Programacion01.Preparacion01
 
 /*
 1. Problema del Viajante de Comercio (Traveling Salesman Problem - TSP)
