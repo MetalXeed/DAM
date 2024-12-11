@@ -30,3 +30,13 @@ Prueba 	                                                                Resultad
 
  println(""+mcd(20,10)+", "+mcd(20,8)+", "+mcd(20,6)+", "+mcd(72,16))   10, 4, 2, 8
  */
+
+fun mcd(dividendo:Int, divisor:Int):Int{
+
+    return  if (dividendo % divisor == 0) return divisor else mcd(divisor,dividendo % divisor)
+
+}
+
+fun main(){
+println(mcd(100,11))
+}

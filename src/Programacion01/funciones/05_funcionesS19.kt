@@ -63,11 +63,7 @@ fun elZorroEstuvoAqui(num: Int, caracter:Char) {
             }
             if(i!=0 && i!=altura-1) {
                 println(caracter)
-
             }
-            //if(i!=0 && i!=altura-1)println()
-
-
         }
     }else{
         for (i in 0..altura-1) {
@@ -84,11 +80,7 @@ fun elZorroEstuvoAqui(num: Int, caracter:Char) {
             }
             if (i != 0 && i != altura - 1) {
                 println(caracter)
-
             }
-            //if(i!=0 && i!=altura-1)println()
-
-
         }
     }
 }

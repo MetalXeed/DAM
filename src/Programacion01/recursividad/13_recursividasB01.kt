@@ -55,3 +55,67 @@ Resultado
 (7,0)(6,0)(5,0)(4,0)(3,0)(3,1)(4,1)(5,1)(5,2)(6,2)(7,2)
 
  */
+// Función para verificar si una posición está dentro de los límites del laberinto y es transitable
+fun hayCamino(fila: Int, columna: Int, laberinto: List<MutableList<Char>>): String {
+    val filas = laberinto.size
+    val columnas = laberinto[0].size
+    val visitados = Array(filas) { BooleanArray(columnas) }
+    val camino = mutableListOf<List<Int>>()
+
+    if (dfs(fila, columna, laberinto, visitados, camino)) {
+        return camino.joinToString("") { "(${it[0]},${it[1]})" }
+    }
+
+    return ""
+}
+
+fun dfs(fila: Int, columna: Int, laberinto: List<MutableList<Char>>, visitados: Array<BooleanArray>, camino: MutableList<List<Int>>): Boolean {
+    if (fila !in 0 until laberinto.size || columna !in 0 until laberinto[0].size || laberinto[fila][columna] == '#' || visitados[fila][columna]) {
+        return false
+    }
+
+    camino.add(listOf(fila, columna))
+
+    if (laberinto[fila][columna] == 'Q') {
+        return true
+    }
+
+    visitados[fila][columna] = true
+
+    val direcciones = listOf(
+        listOf(-1, 0),  // Norte
+        listOf(0, 1),   // Este
+        listOf(1, 0),   // Sur
+        listOf(0, -1)   // Oeste
+    )
+
+    for (dir in direcciones) {
+        val nfila = fila + dir[0]
+        val ncolumna = columna + dir[1]
+
+        if (dfs(nfila, ncolumna, laberinto, visitados, camino)) {
+            return true
+        }
+    }
+
+    camino.removeAt(camino.size - 1)
+    visitados[fila][columna] = false
+    return false
+}
+
+
+fun main(){
+    val laberinto = listOf(
+        mutableListOf('R', '#', '0', '0', '0'),
+        mutableListOf('0', '0', '0', '#', '0'),
+        mutableListOf('#', '#', '#', '0', '0'),
+        mutableListOf('0', '0', '0', '0', '#'),
+        mutableListOf('0', '0', '#', '0', '0'),
+        mutableListOf('0', '0', '0', '#', '0'),
+        mutableListOf('0', '#', '0', '#', '#'),
+        mutableListOf('0', '0', 'Q', '#', '0')
+    )
+
+    // Ratón sale de 0,0
+    println(hayCamino(0, 0, laberinto))
+}

@@ -26,6 +26,7 @@ Si durante el juego se ha descubierto una bomba, se escribirá GAME OVER en vez 
 Por ejemplo:
 Entrada
 
+
 8 8
 -*---*--
 --------
@@ -53,3 +54,77 @@ XXXXX211
 ---1X1--
 
  */
+
+/*
+fun contarBombasAdyacentes(tablero: Array<CharArray>, fila: Int, columna: Int, F: Int, C: Int): Int {
+    val direcciones = listOf(
+        listOf(-1, -1), listOf(-1, 0), listOf(-1, 1),
+        listOf(0, -1), /*CELDA*/ listOf(0, 1),
+        listOf(1, -1), listOf(1, 0), listOf(1, 1)
+    )
+    var contador = 0
+    for (dir in direcciones) {
+        val nfila = fila + dir[0]
+        val ncolumna = columna + dir[1]
+        if (nfila in 0 until F && ncolumna in 0 until C && tablero[nfila][ncolumna] == '*') {
+            contador++
+        }
+    }
+    return contador
+}
+
+fun descubrirCeldas(tablero: Array<CharArray>, descubierto: Array<CharArray>, fila: Int, columna: Int, F: Int, C: Int) {
+    if (fila !in 0 until F || columna !in 0 until C || descubierto[fila][columna] != 'X') {
+        return
+    }
+    val bombas = contarBombasAdyacentes(tablero, fila, columna, F, C)
+    descubierto[fila][columna] = if (bombas == 0) '-' else bombas.toString()[0]
+
+    if (bombas == 0) {
+        val direcciones = listOf(
+            listOf(-1, -1), listOf(-1, 0), listOf(-1, 1),
+            listOf(0, -1), /*CELDA*/ listOf(0, 1),
+            listOf(1, -1), listOf(1, 0), listOf(1, 1)
+        )
+        for (dir in direcciones) {
+            val nfila = fila + dir[0]
+            val ncolumna = columna + dir[1]
+            descubrirCeldas(tablero, descubierto, nfila, ncolumna, F, C)
+        }
+    }
+}
+
+fun main() {
+    var entrada = readLine()
+    while (entrada != null && entrada != "0 0") {
+        val (F, C) = entrada.split(" ").map { it.toInt() }
+        val tablero = Array(F) { readLine()!!.toCharArray() }
+        val descubierto = Array(F) { CharArray(C) { 'X' } }
+
+        val K = readLine()!!.toInt()
+        var gameOver = false
+
+        for (i in 0 until K) {
+            val (fila, columna) = readLine()!!.split(" ").map { it.toInt() - 1 }
+            if (tablero[fila][columna] == '*') {
+                gameOver = true
+                break
+            } else {
+                descubrirCeldas(tablero, descubierto, fila, columna, F, C)
+            }
+        }
+
+        if (gameOver) {
+            println("GAME OVER")
+        } else {
+            for (fila in descubierto) {
+                println(fila.joinToString(""))
+            }
+        }
+
+        entrada = readLine()
+    }
+}
+ */
+
+
