@@ -95,7 +95,7 @@ fun verificarSector(){
 }
 fun comprobarSudoku(matriz:MutableList<IntArray>):String{
     var resultado = "SI"
-
+    //var mapa = mapOf(9){0}
 
     return resultado
 }
