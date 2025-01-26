@@ -37,3 +37,9 @@ fun main() {
     val (nombreU,edadU) = User("A", 25)
     println("$nombreP $edadP    $nombreU $edadU")
 }
+
+//solucion de clase
+/*
+data class Persona(val nombre:String, val edad:Int)
+data class User(val nombre: String, val edad: Int)
+ */

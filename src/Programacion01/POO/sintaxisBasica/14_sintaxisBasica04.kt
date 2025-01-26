@@ -52,3 +52,13 @@ fun main(){
 }
 
  */
+
+//solucion de clase
+/*
+class Coordenadas(var x:Int=88,var y:Int=77){
+    init{
+        if(x<0) x=0
+        if(y<0) y=0
+    }
+}
+ */

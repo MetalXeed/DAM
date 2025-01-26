@@ -71,3 +71,9 @@ fun main() {
 }
 
  */
+
+//Solucion de clase
+/*
+class Persona(val nombre:String, val edad:Int)
+data class User(val nombre: String, val edad: Int)
+ */

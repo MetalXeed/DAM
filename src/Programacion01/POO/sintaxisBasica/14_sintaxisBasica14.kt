@@ -27,3 +27,10 @@ fun main(){
         println("$primera $segunda $tercera")
     }
 }
+//solucion de clase
+/*
+fun main() {
+    val (uno,dos,tres)= readln().split(" ").sorted()
+    println("$uno $dos $tres")
+}
+ */

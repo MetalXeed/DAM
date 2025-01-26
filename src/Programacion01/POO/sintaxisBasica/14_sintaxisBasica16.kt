@@ -89,6 +89,6 @@ fun main(){
     while(entrada.hasNext()){
         val linea = entrada.nextLine().replace(".", "")
         val numero = BigInteger(linea).add(BigInteger("1"))
-        println(numero)
+        println(numero.toString().reversed().chunked(3).joinToString(".").reversed())
     }
 }

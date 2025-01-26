@@ -28,14 +28,7 @@ x: 5, y: 5
 
  */
 class Coordenadas(var x:Int,var y:Int){
-    init{
-        if (x<0) {
-            x=0
-        }
-        if (y<0){
-            y=0
-        }
-    }
+
     fun actualizar(x:Int,y:Int):Coordenadas{
         this.x=x
         this.y=y
