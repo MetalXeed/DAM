@@ -84,3 +84,65 @@ TimeLapse[8h:37m:30s]
 
 TimeLapse[8h:37m:30s]
  */
+
+class TimeLapse(var h:Int=0,var m:Int=0,var s:Int=0){
+    constructor(p:TimeLapse) :this(p.h,p.m,p.s)
+    constructor(s:Int)       :this(0,0,0){
+        this.addSec(s)
+    }
+
+    fun totalSec():Int{
+        return s + m*60 + h * 3600
+    }
+    fun reset(){
+        this.h = 0
+        this.m = 0
+        this.s = 0
+    }
+    fun addSec(s:Int){
+        if( (this.s + s) > 59){
+            var modulo1  = (this.s + s) % 60
+            var cociente = (this.s + s) / 60
+            this.s=modulo1
+
+            if ((this.m+cociente)>59){
+                var modulo2   = (this.m + cociente) % 60
+                var cociente2 = (this.m + cociente) / 60
+                this.m = modulo2
+                this.h += cociente2
+
+            }else this.m += cociente
+        }else this.s += s
+
+    }
+    fun addTime(t:TimeLapse) {
+        var restoSegundos  = (this.s + t.s) % 60
+        var acarreoMinutos = (this.s + t.s) / 60
+        var restoMinutos   = (this.m + t.m + acarreoMinutos) % 60
+        var acarreoHoras   = (this.m + t.m + acarreoMinutos) / 60
+
+
+        if (acarreoMinutos==0) this.s+=t.s else this.s = restoSegundos
+        if (acarreoHoras==0)   this.m+=t.m+acarreoMinutos else this.m = restoMinutos
+        this.h+=t.h+acarreoHoras
+    }
+
+    override fun toString(): String {
+        return "TimeLapse[${this.h}h:${this.m}m:${this.s}s]"
+    }
+}
+fun main(){
+    var t = TimeLapse(5, 20, 50)
+    t.reset()
+    println(t)
+
+    println()
+    t = TimeLapse(5, 50, 50)
+    t.addSec(10000)
+    println(t)
+
+    println()
+    t = TimeLapse(5, 50, 50)
+    t.addTime(TimeLapse(2, 46, 40))
+    println(t)
+}
