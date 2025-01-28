@@ -34,4 +34,6 @@ fun main(){
     println("${c2.x}  ${c2.y} ")
     println("${c3.x}  ${c3.y} ")
 }
- */
+/*
+class Coordenadas(var x:Int=88,var y:Int=77)
+*/

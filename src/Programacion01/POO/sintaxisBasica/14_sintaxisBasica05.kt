@@ -61,3 +61,14 @@ fun main(){
 }
 
  */
+
+//solucion de clase
+/*
+class Coordenadas(var x: Int, var y: Int) {
+
+    fun actualizar(x: Int, y: Int) {
+        this.x = if (x < 0) 0 else x
+        this.y = if (y < 0) 0 else y
+    }
+}
+ */

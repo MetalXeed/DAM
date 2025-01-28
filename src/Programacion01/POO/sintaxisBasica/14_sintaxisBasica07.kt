@@ -24,14 +24,15 @@ Empleado(nombre='Juan', salarioAnual=24000.0)
 Ciudad(nombre='MADRID', pais='España')
 
  */
-class Empleado(val width: String, val height: Double) {
+class Empleado(val nombre: String, val salario: Double) {
     override fun toString(): String {
-        return ("Empleado(nombre='Juan', salarioAnual=24000.0)")
+        val anual = salario * 12
+        return ("Empleado(nombre='"+nombre+"', salarioAnual="+anual+")")
     }
 }
-class Ciudad(val width: String, val height: String) {
+class Ciudad(val nombre: String, val pais: String) {
     override fun toString(): String {
-        return ("Ciudad(nombre='"+width.uppercase()+"', pais='"+height+"')")
+        return ("Ciudad(nombre='"+nombre.uppercase()+"', pais='"+pais+"')")
     }
 }
 

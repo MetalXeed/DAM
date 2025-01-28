@@ -41,5 +41,14 @@ fun main(){
 }
 
 
-
  */
+//solucion clase
+/*
+class Coordenadas(var x:Int=0,var y:Int=0) {
+    fun sumar(c:Coordenadas):Coordenadas{
+        return Coordenadas(x+c.x,y+c.y)
+    }
+}
+ */
+
+

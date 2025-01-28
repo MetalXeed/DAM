@@ -43,3 +43,16 @@ fun main() {
     var (menor2, mayor2, media2) = calcularEstadisticas(numeros)
     println("Menor: $menor2, Mayor: $mayor2, Media: $media2")
 }
+
+//solucion de clase
+/*
+fun calcularEstadisticas(numeros: List<Int>): List<Double> {
+
+
+    val menor = numeros.min().toDouble()
+    val mayor = numeros.max().toDouble()
+    val media = numeros.average()
+
+    return listOf(menor, mayor, media)
+}
+ */
