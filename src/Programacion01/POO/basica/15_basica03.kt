@@ -98,3 +98,103 @@ println(mld3)
 -3,00
 3,00
  */
+/* intento
+class MyLittleDecimal(var numero:String="0"){
+    val numSeparado = numero.split(",")
+    val enteros = numSeparado[0].padStart(2,'0')
+    val decimales = numSeparado[1].padEnd(2, '0').take(2)
+    var valor: Int = "$enteros$decimales".toInt()
+
+
+    fun sumar(n:MyLittleDecimal):MyLittleDecimal{
+        val resultado=MyLittleDecimal()
+        resultado.valor = this.valor + n.valor
+        return  resultado
+
+    }
+    fun restar(n:MyLittleDecimal):MyLittleDecimal{
+        val resultado=MyLittleDecimal()
+        resultado.valor = this.valor - n.valor
+        return  resultado
+
+    }
+    fun multiplicar(n:MyLittleDecimal):MyLittleDecimal{
+        val resultado=MyLittleDecimal()
+        resultado.valor = this.valor * n.valor
+        resultado.valor = resultado.valor.toString().dropLast(2).toInt()
+        return  resultado
+    }
+    fun dividir(n:MyLittleDecimal):MyLittleDecimal{
+        var y=MyLittleDecimal()
+        y.valor = this.valor*100 / n.valor
+        return  y
+    }
+
+    override fun toString(): String {
+        val valorStr = valor.toString().padStart(3, '0') // Asegura al menos tres dígitos
+        val enteros = valorStr.dropLast(2)
+        val decimales = valorStr.takeLast(2)
+        return "$enteros,$decimales"
+    }
+}
+
+ */
+class MyLittleDecimal(var numero: String = "0") {
+    // Asegura que siempre haya dos decimales
+    var valor: Int = numero.replace(",", "").toInt()
+
+
+    fun sumar(n: MyLittleDecimal): MyLittleDecimal {
+        val resultado = MyLittleDecimal()
+        resultado.valor = this.valor + n.valor
+        return resultado
+    }
+
+    fun restar(n: MyLittleDecimal): MyLittleDecimal {
+        val resultado = MyLittleDecimal()
+        resultado.valor = this.valor - n.valor
+        return resultado
+    }
+
+    fun multiplicar(n: MyLittleDecimal): MyLittleDecimal {
+        val resultado = MyLittleDecimal()
+        resultado.valor = (this.valor * n.valor) / 100
+        return resultado
+    }
+
+    fun dividir(n: MyLittleDecimal): MyLittleDecimal {
+        val resultado = MyLittleDecimal()
+        resultado.valor = (this.valor * 100) / n.valor
+        return resultado
+    }
+
+    override fun toString(): String {
+        val valorStr:String
+        if (this.valor<0){
+            val tempString = valor.toString().replace("-", "").padStart(3, '0')
+            valorStr = "-"+ tempString //valor.toString().replace("-", "").padStart(3, '0').padStart(4,'-') // Asegura al menos tres dígitos
+        }else valorStr = valor.toString().padStart(3, '0') // Asegura al menos tres dígitos
+        val enteros = if(valorStr.contains("-")) valorStr.dropLast(2) else valorStr.dropLast(2)
+        val decimales = valorStr.takeLast(2)
+        return "$enteros,$decimales"
+    }
+}
+fun main(){
+    var mld1 = MyLittleDecimal("-200,22")
+    var mld2 = MyLittleDecimal("10,11")
+    var mld3=mld1.sumar(mld2)
+    println(""+mld1.valor+" "+mld2.valor+" "+mld3.valor)
+    println(mld3)
+    mld1 = MyLittleDecimal("-200,22")
+    mld2 = MyLittleDecimal("10,11")
+    mld3=mld1.restar(mld2)
+    println(mld3)
+    mld1 = MyLittleDecimal("-1,00")
+    mld2 = MyLittleDecimal("3,00")
+    mld3=mld1.multiplicar(mld2)
+    println(mld3)
+    mld1 = MyLittleDecimal("-1,00")
+    mld2 = MyLittleDecimal("-3,00")
+    mld3=mld1.multiplicar(mld2)
+    println(mld3)
+}
