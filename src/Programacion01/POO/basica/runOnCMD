@@ -1,0 +1,3 @@
+kotlinc 15_basica03.kt -include-runtime -d 15_basica03.jar
+
+java -jar 15_basica03.jar
