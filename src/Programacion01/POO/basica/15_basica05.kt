@@ -106,6 +106,7 @@ data class MiniSB(var entrada:String=""){
 
     }
 
+
     fun append(entrada:String){
         for (i in entrada) {
             this.buffer[] = this.buffer + i
