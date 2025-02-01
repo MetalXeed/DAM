@@ -112,7 +112,6 @@ data class MiniSB(var entrada:String=""){
             this.buffer[] = this.buffer + i
             contentSize++
         }
-
     }
     fun deleteFromIndex(){}
     fun reverse(){}
