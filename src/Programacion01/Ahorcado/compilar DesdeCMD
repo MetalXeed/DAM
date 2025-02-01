@@ -1,0 +1,13 @@
+//NO javac DibujoAhorcado.java ReproductorMidi.java
+
+javac -d . DibujoAhorcado.java ReproductorMidi.java
+jar cfe Main.jar Programacion01.Ahorcado.MainKt MainKt.class Programacion01/Ahorcado/*.class
+MANIFEST.MF
+
+Manifest-Version: 1.0
+Main-Class: Programacion01.Ahorcado.MainKt
+
+kotlinc Main.kt -include-runtime -d Main.jar -cp .
+java -jar Main.jar
+//NO FUNCIONA AL FINAL DA ERROR.
+
