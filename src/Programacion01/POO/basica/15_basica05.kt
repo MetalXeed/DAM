@@ -92,8 +92,9 @@ narE
 
  */
 
-data class MiniSB(var entrada:String=""){
+class MiniSB(var entrada:String=""){
     var contentSize:Int
+        private set
     var buffer: CharArray
 
     init{
@@ -103,22 +104,43 @@ data class MiniSB(var entrada:String=""){
         for (i in entrada.indices) {
             buffer[i] = entrada[i]
         }
-
     }
 
+    private fun resizeBuffer(newSize: Int){
+        val newBuffer = CharArray(newSize)
+        for (i in buffer.indices) {
+            newBuffer[i] = buffer[i]
+        }
+        buffer = newBuffer
+    }
+    fun append(entrada:String):MiniSB{
+        val initPos = contentSize
 
-    fun append(entrada:String){
+        if(contentSize + entrada.length > buffer.size) resizeBuffer(contentSize+entrada.length*2)
+
         for (i in entrada) {
-            this.buffer[] = this.buffer + i
+            buffer[contentSize] = i
             contentSize++
         }
+        return this
     }
-    fun deleteFromIndex(){}
-    fun reverse(){}
+    fun deleteFromIndex(index: Int): MiniSB {
+        contentSize = index
+        return this
+    }
+    fun reverse(): MiniSB {
+        for (i in 0 until contentSize / 2) {
+            val temp = buffer[i]
+            buffer[i] = buffer[contentSize - i - 1]
+            buffer[contentSize - i - 1] = temp
+        }
+        return this
+    }
 
     override fun toString(): String {
         return String(buffer, 0, contentSize)
     }
+
 }
 
 fun main(){
