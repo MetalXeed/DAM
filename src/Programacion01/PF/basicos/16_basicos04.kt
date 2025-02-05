@@ -37,3 +37,26 @@ println(primos)
 [2, 3, 5, 7]
 
  */
+fun numerosPrimos(listado:List<Int>):List<Int>{
+    var listaPrimos = mutableListOf<Int>()
+    fun esPrimo(numero:Int):Boolean{
+        if (numero <= 1) {
+            return false
+        }
+        for (i in 2..numero / 2) {
+
+            if (numero % i == 0) {
+                return false
+            }
+        }
+
+        return true
+    }
+    for (i in listado) if(esPrimo(i)) listaPrimos.add(i)
+    return listaPrimos
+}
+fun main(){
+    val numeros = listOf(2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val primos = numerosPrimos(numeros)
+    println(primos)
+}
