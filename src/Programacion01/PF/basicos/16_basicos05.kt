@@ -23,3 +23,19 @@ false
 
 Respuesta:(sistema de penalización: 0 %)
  */
+fun Char.esLetraMinuscula():Boolean{
+    var caracteresMayusculos= mutableListOf<Int>()
+    for (i in 97..122) caracteresMayusculos.add(i)
+        return caracteresMayusculos.contains(this.toInt())
+}
+
+fun main(){
+
+    println('a'.esLetraMinuscula()) //true
+    println('A'.esLetraMinuscula()) //false
+    println('5'.esLetraMinuscula()) //false
+    /*
+    var a = 'z'
+    println
+     */
+}

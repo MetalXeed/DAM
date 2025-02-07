@@ -25,5 +25,21 @@ Prueba 	Resultado
  //8
  //1
  //9
- */
 
+// 1er intento
+fun sumar(vararg numero:Int):Int{
+    var resultado =0
+    for (i in numero) resultado+=i
+    return resultado
+}
+ */
+fun sumar(vararg numero:Int) = numero.sum()
+
+fun main(){
+    println(sumar(1, 2, 3, 4, 5))
+    println(sumar(5, 2))
+    println(sumar(1,1,1,1,1,1,1,1))
+    println(sumar(1))
+    val miArray= intArrayOf(9)
+    println(sumar(*miArray))
+}
