@@ -30,3 +30,9 @@ fun main(){
     juan.saludarA(maria)
     juan saludarA maria
 }
+/*
+Clase
+class Persona(val nombre:String){
+    infix fun saludarA(otra:Persona) = println("Hola " + otra.nombre+", soy " + this.nombre+".")
+}
+ */

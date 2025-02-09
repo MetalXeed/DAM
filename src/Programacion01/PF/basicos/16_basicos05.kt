@@ -28,7 +28,7 @@ fun Char.esLetraMinuscula():Boolean{
     for (i in 97..122) caracteresMayusculos.add(i)
         return caracteresMayusculos.contains(this.toInt())
 }
-
+//fun Char.esLetraMinuscula() = this.isLowerCase()
 fun main(){
 
     println('a'.esLetraMinuscula()) //true

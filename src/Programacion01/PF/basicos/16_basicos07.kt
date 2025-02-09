@@ -29,3 +29,10 @@ println(multiplicar(2,100000))
 200000
 
  */
+
+tailrec fun multiplicar(a: Int, b: Int, resultado:Int=0): Int {
+    return if (b == 0) resultado else multiplicar(a, b - 1,resultado+a)
+}
+fun main(){
+    println(multiplicar(2,100000))
+}

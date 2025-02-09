@@ -27,6 +27,7 @@ println(resultadoCadenas)
 HolaMundo!
 
  */
+
 fun <T> concatenar(vararg listado:List<T>):String{
     var resultado=""
     for(i in listado) resultado=i.joinToString("")
@@ -36,4 +37,7 @@ fun main(){
     val listaEnteros = listOf(1, 2, 3, 4, 5)
     val resultadoEnteros = concatenar(listaEnteros)
     println(resultadoEnteros)
+
 }
+//solucion clase
+//fun <T> concatenar(l:List<T>)= l.joinToString("")

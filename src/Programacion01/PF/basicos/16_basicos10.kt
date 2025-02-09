@@ -27,3 +27,14 @@ true
 false
 
  */
+
+fun main() {
+    val multiplicacion: (Int,Int) -> Int = { a, b -> a * b }
+    val concatenar: (String,String) -> String = { str1, str2 -> str1 + str2 }
+    val esMayor: (Int,Int) -> Boolean = { edad1, edad2 -> edad1 > edad2 }
+
+    println(multiplicacion(3, 4))  //
+    println(concatenar("Hola", " Mundo"))
+    println(esMayor(25, 18))
+    println(esMayor(16, 21))
+}

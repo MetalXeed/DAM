@@ -60,3 +60,26 @@ fun main(){
     val primos = numerosPrimos(numeros)
     println(primos)
 }
+/*
+fun numerosPrimos(l:List<Int>):List<Int>{
+    fun esPrimo(numero: Int): Boolean {
+        if (numero <= 1) {
+            return false
+        }
+
+        for (i in 2..Math.sqrt(numero.toDouble()).toInt()) {
+            if (numero % i == 0) {
+                return false
+            }
+        }
+
+        return true
+    }
+    var nuevaLista= mutableListOf<Int>()
+    for(n in l){
+        if(esPrimo(n))  nuevaLista.add(n)
+    }
+    return nuevaLista
+
+}
+ */
